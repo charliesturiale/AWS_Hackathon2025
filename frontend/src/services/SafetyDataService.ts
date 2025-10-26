@@ -233,47 +233,75 @@ export async function getSafetyDataForLocation(
 /**
  * Calculate safety score for an entire route
  */
-export async function getRouteSefetyScore(
+export async function getRouteSafetyScore(
   coordinates: Array<{ lat: number; lng: number }>
 ): Promise<SafetyMetrics> {
-  // Sample points along the route (every 5th coordinate to reduce API calls)
-  const samplePoints = coordinates.filter((_, index) => index % 5 === 0)
-  
-  // Get safety data for each sample point
-  const safetyDataPromises = samplePoints.map(coord => 
-    getSafetyDataForLocation(coord.lat, coord.lng, 250) // 250m radius for route points
-  )
-  
-  const safetyDataArray = await Promise.all(safetyDataPromises)
-  
-  // Average the scores across all sample points
-  const avgSafetyScore = Math.round(
-    safetyDataArray.reduce((acc, data) => acc + data.safetyScore, 0) / safetyDataArray.length
-  )
-  const avgCrimeScore = Math.round(
-    safetyDataArray.reduce((acc, data) => acc + data.crimeScore, 0) / safetyDataArray.length
-  )
-  const avgSocialScore = Math.round(
-    safetyDataArray.reduce((acc, data) => acc + data.socialScore, 0) / safetyDataArray.length
-  )
-  const avgPedestrianScore = Math.round(
-    safetyDataArray.reduce((acc, data) => acc + data.pedestrianScore, 0) / safetyDataArray.length
-  )
-  
-  // Collect all unique incidents along the route
-  const allIncidents = new Map<string, Incident>()
-  safetyDataArray.forEach(data => {
-    data.incidents.forEach(incident => {
-      allIncidents.set(incident.id, incident)
+  try {
+    // Sample points along the route (every 5th coordinate to reduce API calls)
+    const samplePoints = coordinates.filter((_, index) => index % 5 === 0)
+    
+    // Ensure we have at least one sample point
+    if (samplePoints.length === 0 && coordinates.length > 0) {
+      samplePoints.push(coordinates[0])
+    }
+    
+    // Get safety data for each sample point
+    const safetyDataPromises = samplePoints.map(coord => 
+      getSafetyDataForLocation(coord.lat, coord.lng, 250) // 250m radius for route points
+    )
+    
+    const safetyDataArray = await Promise.all(safetyDataPromises)
+    
+    // Handle empty data array
+    if (safetyDataArray.length === 0) {
+      return {
+        safetyScore: 85,
+        crimeScore: 85,
+        socialScore: 85,
+        pedestrianScore: 85,
+        incidents: []
+      }
+    }
+    
+    // Average the scores across all sample points
+    const avgSafetyScore = Math.round(
+      safetyDataArray.reduce((acc, data) => acc + data.safetyScore, 0) / safetyDataArray.length
+    )
+    const avgCrimeScore = Math.round(
+      safetyDataArray.reduce((acc, data) => acc + data.crimeScore, 0) / safetyDataArray.length
+    )
+    const avgSocialScore = Math.round(
+      safetyDataArray.reduce((acc, data) => acc + data.socialScore, 0) / safetyDataArray.length
+    )
+    const avgPedestrianScore = Math.round(
+      safetyDataArray.reduce((acc, data) => acc + data.pedestrianScore, 0) / safetyDataArray.length
+    )
+    
+    // Collect all unique incidents along the route
+    const allIncidents = new Map<string, Incident>()
+    safetyDataArray.forEach(data => {
+      data.incidents.forEach(incident => {
+        allIncidents.set(incident.id, incident)
+      })
     })
-  })
-  
-  return {
-    safetyScore: avgSafetyScore,
-    crimeScore: avgCrimeScore,
-    socialScore: avgSocialScore,
-    pedestrianScore: avgPedestrianScore,
-    incidents: Array.from(allIncidents.values())
+    
+    return {
+      safetyScore: avgSafetyScore,
+      crimeScore: avgCrimeScore,
+      socialScore: avgSocialScore,
+      pedestrianScore: avgPedestrianScore,
+      incidents: Array.from(allIncidents.values())
+    }
+  } catch (error) {
+    console.error('Error calculating route safety score:', error)
+    // Return default scores if there's an error
+    return {
+      safetyScore: 85,
+      crimeScore: 85,
+      socialScore: 85,
+      pedestrianScore: 85,
+      incidents: []
+    }
   }
 }
 

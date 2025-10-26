@@ -1,5 +1,5 @@
 import type { Route } from "@/components/safe-path-app"
-import { getRouteSefetyScore } from "./SafetyDataService"
+import { getRouteSafetyScore } from "./SafetyDataService"
 
 const GRAPHHOPPER_API_KEY = process.env.REACT_APP_GRAPHHOPPER_API_KEY || ""
 const GEOCODING_URL = "https://graphhopper.com/api/1/geocode"
@@ -107,7 +107,7 @@ export async function calculateRoutes(
         }))
 
         // Get real-time safety data from SF APIs
-        const safetyMetrics = await getRouteSefetyScore(coordinates)
+        const safetyMetrics = await getRouteSafetyScore(coordinates)
 
         // Generate route name based on safety scores
         const routeName =
