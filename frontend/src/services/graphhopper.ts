@@ -33,26 +33,43 @@ interface RoutingResult {
  */
 export async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
   try {
+    console.log("🔍 Attempting to geocode:", address);
+    console.log("🔑 Using API key:", GRAPHHOPPER_API_KEY.substring(0, 10) + "...");
+    
     const url = `${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`;
-    const response = await fetch(url)
+    console.log("📍 Geocoding URL:", url.replace(GRAPHHOPPER_API_KEY, "[KEY]"));
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+      mode: 'cors'
+    })
+    console.log("📡 Response status:", response.status, response.statusText);
 
     const data = await response.json()
+    console.log("📦 Response data:", JSON.stringify(data).substring(0, 200));
     
     // Check for API errors in response
     if ((data as any).message) {
-      console.error("GraphHopper API error:", (data as any).message)
+      console.error("❌ GraphHopper API error:", (data as any).message)
       return null
     }
 
     if (data.hits && data.hits.length > 0) {
-      console.log("Geocoding successful for:", address)
+      console.log("✅ Geocoding successful for:", address, "=>", data.hits[0].point)
       return data.hits[0].point
     }
 
-    console.warn("No geocoding results for:", address)
+    console.warn("⚠️ No geocoding results for:", address)
     return null
   } catch (error) {
-    console.error("Geocoding network error:", error)
+    console.error("🚨 Geocoding network error:", error)
+    console.error("Error details:", {
+      message: (error as any).message,
+      stack: (error as any).stack
+    })
     return null
   }
 }
@@ -128,12 +145,22 @@ export async function calculateRoutes(
     params.append("point", `${originCoords.lat},${originCoords.lng}`)
     params.append("point", `${destCoords.lat},${destCoords.lng}`)
 
-    const response = await fetch(`${ROUTING_URL}?${params.toString()}`)
+    const routingUrl = `${ROUTING_URL}?${params.toString()}`;
+    console.log("🗺️ Routing URL:", routingUrl.replace(GRAPHHOPPER_API_KEY, "[KEY]"));
+    
+    const response = await fetch(routingUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+      mode: 'cors'
+    })
+    console.log("🚗 Routing response status:", response.status, response.statusText);
 
     let data: RoutingResult;
     
     if (!response.ok) {
-      console.warn('GraphHopper routing failed, using mock routes');
+      console.warn('❌ GraphHopper routing failed with status:', response.status);
       // Generate mock routes
       const mockRoute = generateMockRoute(originCoords, destCoords);
       data = {
