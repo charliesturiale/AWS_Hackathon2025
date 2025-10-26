@@ -4,6 +4,14 @@
 
 The `.env` file is NOT automatically deployed to Vercel. You must manually add environment variables in the Vercel dashboard.
 
+## ⚠️ CRITICAL: Environment Variable Naming
+
+**The variable name MUST be exactly:** `REACT_APP_GRAPHHOPPER_API_KEY`
+
+- ❌ **WRONG**: `GraphHopperAPI`
+- ❌ **WRONG**: `GRAPHHOPPER_API_KEY`
+- ✅ **CORRECT**: `REACT_APP_GRAPHHOPPER_API_KEY`
+
 ## Required Environment Variables
 
 ### 1. GraphHopper API Key (REQUIRED)
@@ -11,6 +19,8 @@ The `.env` file is NOT automatically deployed to Vercel. You must manually add e
 Name: REACT_APP_GRAPHHOPPER_API_KEY
 Value: ee6ac405-9a11-42e2-a0ac-dc333939f34b
 ```
+
+**Note:** React apps on Vercel ONLY recognize environment variables that start with `REACT_APP_`
 
 ### 2. DataSF API Key (Optional)
 ```

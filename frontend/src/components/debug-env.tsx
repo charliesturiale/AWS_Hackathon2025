@@ -47,14 +47,17 @@ export function DebugEnv() {
         </div>
         
         <div className="pt-2 border-t text-xs text-gray-600">
-          <p className="font-semibold">If GraphHopper is missing on Vercel:</p>
+          <p className="font-semibold text-red-600">⚠️ IMPORTANT: Exact naming required!</p>
           <ol className="mt-1 space-y-1">
-            <li>1. Go to Vercel Dashboard</li>
-            <li>2. Settings → Environment Variables</li>
-            <li>3. Add: REACT_APP_GRAPHHOPPER_API_KEY</li>
-            <li>4. Value: ee6ac405-9a11-42e2-a0ac-dc333939f34b</li>
-            <li>5. Redeploy</li>
+            <li>1. Go to Vercel Dashboard → Settings</li>
+            <li>2. Environment Variables</li>
+            <li>3. <span className="font-bold">DELETE</span> any existing "GraphHopperAPI"</li>
+            <li>4. Add NEW with EXACT name:</li>
+            <li className="pl-3 font-mono font-bold">REACT_APP_GRAPHHOPPER_API_KEY</li>
+            <li>5. Value: <span className="font-mono">ee6ac405-9a11-42e2-a0ac-dc333939f34b</span></li>
+            <li>6. <span className="font-bold">Redeploy</span> after saving</li>
           </ol>
+          <p className="mt-2 text-red-600 font-semibold">The name MUST start with REACT_APP_</p>
         </div>
       </div>
     </Card>
