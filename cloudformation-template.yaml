@@ -1,0 +1,176 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Lambda API Data Fetcher with DynamoDB Cache and 3-day TTL'
+
+Parameters:
+  ApiKey:
+    Type: String
+    Description: API Key for external API
+    NoEcho: true
+  ApiEndpoint:
+    Type: String
+    Description: External API endpoint URL
+
+Resources:
+  # DynamoDB Table
+  ApiDataCacheTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ApiDataCache
+      AttributeDefinitions:
+        - AttributeName: data_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: data_id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Environment
+          Value: Production
+
+  # Lambda Execution Role
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: DynamoDBAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:GetItem
+                  - dynamodb:Scan
+                  - dynamodb:Query
+                  - dynamodb:UpdateItem
+                  - dynamodb:DeleteItem
+                Resource: !GetAtt ApiDataCacheTable.Arn
+
+  # Lambda Function
+  ApiDataFetcherLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: ApiDataFetcher
+      Runtime: python3.11
+      Handler: lambda_fetch_api.lambda_handler
+      Code:
+        ZipFile: |
+          # Placeholder - replace with actual code deployment
+          def lambda_handler(event, context):
+              return {'statusCode': 200, 'body': 'Deploy actual code'}
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 60
+      MemorySize: 256
+      Environment:
+        Variables:
+          DYNAMODB_TABLE_NAME: !Ref ApiDataCacheTable
+          API_KEY: !Ref ApiKey
+          API_ENDPOINT: !Ref ApiEndpoint
+      Tags:
+        - Key: Environment
+          Value: Production
+
+  # API Gateway
+  ApiGateway:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: ApiDataFetcherAPI
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins:
+          - '*'
+        AllowMethods:
+          - GET
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - '*'
+
+  # Lambda Permission for API Gateway
+  ApiGatewayLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiDataFetcherLambda
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGateway}/*/*/*'
+
+  # API Gateway Integration
+  LambdaIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref ApiGateway
+      IntegrationType: AWS_PROXY
+      IntegrationMethod: POST
+      IntegrationUri: !Sub 'arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ApiDataFetcherLambda.Arn}/invocations'
+      PayloadFormatVersion: '2.0'
+
+  # Routes
+  FetchNewRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref ApiGateway
+      RouteKey: 'POST /fetch-new'
+      Target: !Sub 'integrations/${LambdaIntegration}'
+
+  GetDataRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref ApiGateway
+      RouteKey: 'GET /data'
+      Target: !Sub 'integrations/${LambdaIntegration}'
+
+  # API Gateway Stage
+  ApiStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref ApiGateway
+      StageName: prod
+      AutoDeploy: true
+
+  # CloudWatch Event Rule for periodic fetching (optional)
+  ScheduledFetchRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Name: ApiDataFetcherSchedule
+      Description: 'Trigger Lambda to fetch new API data every hour'
+      ScheduleExpression: 'rate(1 hour)'
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt ApiDataFetcherLambda.Arn
+          Id: '1'
+          Input: '{"httpMethod": "POST", "path": "/fetch-new"}'
+
+  # Permission for CloudWatch Events to invoke Lambda
+  ScheduledFetchLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref ApiDataFetcherLambda
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt ScheduledFetchRule.Arn
+
+Outputs:
+  ApiEndpoint:
+    Description: 'API Gateway endpoint URL'
+    Value: !Sub 'https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod'
+  DynamoDBTableName:
+    Description: 'Name of the DynamoDB table'
+    Value: !Ref ApiDataCacheTable
+  LambdaFunctionArn:
+    Description: 'ARN of the Lambda function'
+    Value: !GetAtt ApiDataFetcherLambda.Arn

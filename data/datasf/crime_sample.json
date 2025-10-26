@@ -1,0 +1,10 @@
+[{"incident_id":"1433881","incident_datetime":"2024-10-20T00:01:00.000","incident_category":"Larceny Theft","latitude":"37.79489517211914","longitude":"-122.42999267578125"}
+,{"incident_id":"1438569","incident_datetime":"2024-10-20T00:01:00.000","incident_category":"Malicious Mischief","latitude":"37.783931732177734","longitude":"-122.41259765625"}
+,{"incident_id":"1440580","incident_datetime":"2024-10-20T00:01:00.000","incident_category":"Malicious Mischief","latitude":"37.77293014526367","longitude":"-122.38971710205078"}
+,{"incident_id":"1433563","incident_datetime":"2024-10-20T00:09:00.000","incident_category":"Malicious Mischief","latitude":"37.770896911621094","longitude":"-122.41499328613281"}
+,{"incident_id":"1434245","incident_datetime":"2024-10-20T00:10:00.000","incident_category":"Larceny Theft","latitude":"37.79489517211914","longitude":"-122.42999267578125"}
+,{"incident_id":"1434475","incident_datetime":"2024-10-20T00:15:00.000","incident_category":"Larceny Theft","latitude":"37.79489517211914","longitude":"-122.42999267578125"}
+,{"incident_id":"1433548","incident_datetime":"2024-10-20T00:28:00.000","incident_category":"Motor Vehicle Theft","latitude":"37.72200012207031","longitude":"-122.43360900878906"}
+,{"incident_id":"1433548","incident_datetime":"2024-10-20T00:28:00.000","incident_category":"Vandalism","latitude":"37.72200012207031","longitude":"-122.43360900878906"}
+,{"incident_id":"1433546","incident_datetime":"2024-10-20T00:30:00.000","incident_category":"Robbery","latitude":"37.72246551513672","longitude":"-122.43647003173828"}
+,{"incident_id":"1434637","incident_datetime":"2024-10-20T00:30:00.000","incident_category":"Malicious Mischief","latitude":"37.78211975097656","longitude":"-122.40725708007812"}]
