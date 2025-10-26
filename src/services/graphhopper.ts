@@ -1,4 +1,5 @@
 import type { Route } from "@/components/safe-path-app"
+import { getRouteSefetyScore } from "./SafetyDataService"
 
 const GRAPHHOPPER_API_KEY = process.env.REACT_APP_GRAPHHOPPER_API_KEY || ""
 const GEOCODING_URL = "https://graphhopper.com/api/1/geocode"
@@ -93,56 +94,75 @@ export async function calculateRoutes(
       throw new Error("No routes found")
     }
 
-    // Step 3: Convert GraphHopper routes to our Route format
-    const convertedRoutes: Route[] = data.paths.map((path, index) => {
-      const distanceInMiles = (path.distance / 1609.34).toFixed(1)
-      const timeInMinutes = Math.round(path.time / 1000 / 60)
+    // Step 3: Convert GraphHopper routes to our Route format with real safety data
+    const convertedRoutes: Route[] = await Promise.all(
+      data.paths.map(async (path, index) => {
+        const distanceInMiles = (path.distance / 1609.34).toFixed(1)
+        const timeInMinutes = Math.round(path.time / 1000 / 60)
 
-      // Convert coordinates from [lng, lat] to {lat, lng}
-      const coordinates = path.points.coordinates.map((coord) => ({
-        lat: coord[1],
-        lng: coord[0],
-      }))
+        // Convert coordinates from [lng, lat] to {lat, lng}
+        const coordinates = path.points.coordinates.map((coord) => ({
+          lat: coord[1],
+          lng: coord[0],
+        }))
 
-      // Calculate safety score (for now, based on distance and time)
-      // In a real app, you'd integrate crime data, lighting data, etc.
-      const safetyScore = index === 0 ? 95 : index === 1 ? 88 : 78
+        // Get real-time safety data from SF APIs
+        const safetyMetrics = await getRouteSefetyScore(coordinates)
 
-      // Generate route name
-      const routeNames = ["Safest Route", "Balanced Route", "Fastest Route"]
-      const routeName = routeNames[index] || `Route ${index + 1}`
+        // Generate route name based on safety scores
+        const routeName =
+          safetyMetrics.safetyScore >= 90
+            ? "Safest Route"
+            : safetyMetrics.safetyScore >= 75
+            ? "Balanced Route"
+            : "Fastest Route"
 
-      // Route colors
-      const colors = ["#10b981", "#3b82f6", "#f59e0b"]
+        // Route colors based on safety
+        const color =
+          safetyMetrics.safetyScore >= 90
+            ? "#10b981"
+            : safetyMetrics.safetyScore >= 75
+            ? "#3b82f6"
+            : "#f59e0b"
 
-      // Generate mock waypoints based on route length
-      const numWaypoints = 3
-      const waypoints = Array.from({ length: numWaypoints }, (_, i) => {
-        const segmentIndex = Math.floor((coordinates.length / (numWaypoints + 1)) * (i + 1))
+        // Generate waypoints with incident information
+        const numWaypoints = Math.min(3, safetyMetrics.incidents.length)
+        const waypoints = safetyMetrics.incidents.slice(0, numWaypoints).map((incident, i) => ({
+          name: incident.description.substring(0, 30),
+          type: incident.type === "crime" ? "Crime incident" : incident.type === "encampment" ? "Encampment" : "Safety concern",
+          safe: incident.severity !== "high",
+        }))
+
+        // Add additional waypoints if needed
+        while (waypoints.length < 3) {
+          waypoints.push({
+            name: `Checkpoint ${waypoints.length + 1}`,
+            type: "Clear area",
+            safe: true,
+          })
+        }
+
         return {
-          name: `Waypoint ${i + 1}`,
-          type: index === 0 ? "Well-lit area" : index === 1 ? "Moderate traffic" : "Direct route",
-          safe: index === 0 ? true : index === 2 && i === 0 ? false : true,
+          id: index + 1,
+          name: routeName,
+          distance: `${distanceInMiles} mi`,
+          time: `${timeInMinutes} min`,
+          safetyScore: safetyMetrics.safetyScore,
+          crimeScore: safetyMetrics.crimeScore,
+          timeScore: 100 - (timeInMinutes * 2), // Lower time = higher score
+          socialScore: safetyMetrics.socialScore,
+          pedestrianScore: safetyMetrics.pedestrianScore,
+          coordinates: coordinates,
+          waypoints: waypoints,
+          color: color,
         }
       })
+    )
 
-      return {
-        id: index + 1,
-        name: routeName,
-        distance: `${distanceInMiles} mi`,
-        time: `${timeInMinutes} min`,
-        safetyScore: safetyScore,
-        crimeScore: safetyScore + Math.floor(Math.random() * 5),
-        timeScore: 100 - index * 10,
-        socialScore: safetyScore - Math.floor(Math.random() * 5),
-        pedestrianScore: safetyScore + Math.floor(Math.random() * 3),
-        coordinates: coordinates,
-        waypoints: waypoints,
-        color: colors[index] || "#6b7280",
-      }
-    })
+    // Sort routes by safety score
+    convertedRoutes.sort((a, b) => b.safetyScore - a.safetyScore)
 
-    // Ensure we always have 3 routes
+    // Ensure we always have at least 3 route variants
     const routes: Route[] = []
     const routeNames = ["Safest Route", "Balanced Route", "Fastest Route"]
     const colors = ["#10b981", "#3b82f6", "#f59e0b"]
@@ -150,20 +170,24 @@ export async function calculateRoutes(
     for (let i = 0; i < 3; i++) {
       if (convertedRoutes[i]) {
         // Use the converted route if it exists
-        routes.push(convertedRoutes[i])
-      } else {
-        // Create a variant of the first route with slightly adjusted scores
+        routes.push({
+          ...convertedRoutes[i],
+          id: i + 1,
+          name: routeNames[i],
+          color: colors[i],
+        })
+      } else if (convertedRoutes[0]) {
+        // Create a variant of the first route with adjusted parameters if we don't have enough routes
         const baseRoute = convertedRoutes[0]
-        const safetyScore = 95 - (i * 7) // 95, 88, 81
+        const adjustmentFactor = 1 - (i * 0.1) // Slightly adjust scores for variety
         routes.push({
           ...baseRoute,
           id: i + 1,
           name: routeNames[i],
-          safetyScore: safetyScore,
-          crimeScore: safetyScore + Math.floor(Math.random() * 5),
-          timeScore: 100 - i * 10,
-          socialScore: safetyScore - Math.floor(Math.random() * 5),
-          pedestrianScore: safetyScore + Math.floor(Math.random() * 3),
+          safetyScore: Math.round(baseRoute.safetyScore * adjustmentFactor),
+          crimeScore: Math.round(baseRoute.crimeScore * adjustmentFactor),
+          socialScore: Math.round(baseRoute.socialScore * adjustmentFactor),
+          pedestrianScore: Math.round(baseRoute.pedestrianScore * adjustmentFactor),
           color: colors[i],
         })
       }
