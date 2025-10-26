@@ -6,7 +6,7 @@
 
 const fetch = require('node-fetch');
 
-const GRAPHHOPPER_API_KEY = '38c87f28-1cc5-48a3-977f-39e49d3c78de';
+const GRAPHHOPPER_API_KEY = 'ee6ac405-9a11-42e2-a0ac-dc333939f34b';
 
 async function testGraphHopperGeocoding() {
   console.log('\n🔍 Testing GraphHopper Geocoding API...');
