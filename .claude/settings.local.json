@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(powershell -Command \"Stop-Process -Id 36356 -Force\")",
+      "Bash(curl:*)",
+      "Bash(python:*)",
+      "Bash(powershell -Command \"Get-Process python | Where-Object {$_MainWindowTitle -eq ''''} | Stop-Process -Force\")",
+      "Bash(powershell -Command \"Get-Process uvicorn | Stop-Process -Force\")",
+      "Bash(timeout 20 bash:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

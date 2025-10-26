@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet"
+import { useEffect, useState } from "react"
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap, Circle } from "react-leaflet"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import type { Route } from "./safe-path-app"
@@ -12,6 +12,19 @@ interface RouteMapProps {
   destination?: string
   routes?: Route[]
   selectedRouteId?: number
+}
+
+interface Incident {
+  type: "crime" | "311"
+  title: string
+  subtype?: string
+  date: string
+  location?: string
+  status?: string
+  coordinates: {
+    lat: number
+    lng: number
+  }
 }
 
 // Fix for default marker icons in React-Leaflet
@@ -81,6 +94,37 @@ const createWaypointIcon = (safe: boolean) => {
   })
 }
 
+// Incident marker icon - different styling for crime vs 311
+const createIncidentIcon = (type: "crime" | "311", count?: number) => {
+  const color = type === "crime" ? "#ef4444" : "#f59e0b"
+  const size = 26
+  const displayText = count && count > 1 ? count.toString() : "!"
+
+  return L.divIcon({
+    className: "incident-marker",
+    html: `
+      <div style="
+        background: ${color};
+        width: ${size}px;
+        height: ${size}px;
+        border-radius: 50%;
+        border: 3px solid white;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: ${count && count > 9 ? '10px' : '13px'};
+        opacity: 0.9;
+      ">${displayText}</div>
+    `,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+    popupAnchor: [0, -size / 2],
+  })
+}
+
 // Component to handle map bounds updates
 function MapBoundsUpdater({ routes, routeCalculated }: { routes?: Route[]; routeCalculated: boolean }) {
   const map = useMap()
@@ -104,8 +148,47 @@ export default function RouteMap({ routeCalculated, origin, destination, routes,
   const defaultCenter: [number, number] = [37.7749, -122.4194]
   const defaultZoom = 13
 
+  const [incidents, setIncidents] = useState<Incident[]>([])
+  const [incidentsLoading, setIncidentsLoading] = useState(false)
+
+  // Fetch incidents on component mount
+  useEffect(() => {
+    const fetchIncidents = async () => {
+      setIncidentsLoading(true)
+      try {
+        const response = await fetch('http://localhost:8000/api/incidents')
+        const data = await response.json()
+        if (data.incidents) {
+          setIncidents(data.incidents)
+          console.log(`Loaded ${data.total_count} incidents: ${data.crime_count} crimes, ${data.incident_311_count} 311 incidents`)
+        }
+      } catch (error) {
+        console.error('Failed to fetch incidents:', error)
+      } finally {
+        setIncidentsLoading(false)
+      }
+    }
+
+    fetchIncidents()
+  }, [])
+
   const startIcon = createCustomIcon("#8b5cf6", "S")
   const endIcon = createCustomIcon("#06b6d4", "D")
+
+  // Format date for display
+  const formatDate = (dateString: string) => {
+    try {
+      const date = new Date(dateString)
+      return date.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit'
+      })
+    } catch {
+      return dateString
+    }
+  }
 
   return (
     <Card className="relative h-[calc(100vh-12rem)] overflow-hidden shadow-lg border-2 border-border/50">
@@ -121,6 +204,48 @@ export default function RouteMap({ routeCalculated, origin, destination, routes,
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+
+        {/* Incident Markers - Always visible */}
+        {incidents.map((incident, index) => (
+          <Marker
+            key={`incident-${index}`}
+            position={[incident.coordinates.lat, incident.coordinates.lng]}
+            icon={createIncidentIcon(incident.type)}
+          >
+            <Popup>
+              <div className="min-w-[200px]">
+                <div className="font-semibold text-base mb-1">{incident.title}</div>
+                {incident.subtype && (
+                  <div className="text-sm text-muted-foreground mb-1">{incident.subtype}</div>
+                )}
+                {incident.location && (
+                  <div className="text-sm text-muted-foreground mb-1">{incident.location}</div>
+                )}
+                <div className="text-xs text-muted-foreground mt-2">
+                  {formatDate(incident.date)}
+                </div>
+                {incident.status && (
+                  <div className="text-xs mt-1">
+                    <span className={`px-2 py-0.5 rounded-full ${
+                      incident.status.toLowerCase() === 'open'
+                        ? 'bg-yellow-100 text-yellow-800'
+                        : 'bg-gray-100 text-gray-800'
+                    }`}>
+                      {incident.status}
+                    </span>
+                  </div>
+                )}
+                <div className="mt-2 pt-2 border-t border-border">
+                  <span className={`text-xs font-semibold ${
+                    incident.type === 'crime' ? 'text-red-600' : 'text-orange-600'
+                  }`}>
+                    {incident.type === 'crime' ? 'Crime Incident' : '311 Report'}
+                  </span>
+                </div>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
 
         {/* Render routes if calculated */}
         {routeCalculated && routes && routes.length > 0 && (
