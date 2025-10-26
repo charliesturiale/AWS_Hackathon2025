@@ -49,6 +49,7 @@ npm run android
 - **Navigation**: React Navigation
 - **Maps**: React Native Maps
 - **ML/AI**: Python scripts for safety analysis
+- **Algorithms**: [Mathematical route optimization](./ROUTE_MATHEMATICS.md)
 - **Data**: San Francisco crime & safety datasets
 
 ## 📁 Project Structure
@@ -75,7 +76,7 @@ safepath-sf/
 
 ## 🌟 Features
 - Real-time safety mapping
-- Smart route planning
+- Smart route planning with [advanced mathematical algorithms](./ROUTE_MATHEMATICS.md)
 - Crime data visualization
 - ML-powered safety scoring
 - Web, iOS, and Android support
@@ -99,6 +100,9 @@ watchman watch-del-all
 ```bash
 npx expo start --clear
 ```
+
+## 📚 Documentation
+- [Route Calculation Mathematics](./ROUTE_MATHEMATICS.md) - Deep dive into the algorithms and formulas
 
 ## 📄 License
 MIT
