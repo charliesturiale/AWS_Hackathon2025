@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Beautiful gradient background */
+  --background: 240 20% 98%;
+  --foreground: 240 10% 10%;
+
+  /* Vibrant card colors */
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 10%;
+
+  /* Primary: Beautiful purple-blue gradient */
+  --primary: 250 95% 63%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary: Soft purple */
+  --secondary: 260 60% 96%;
+  --secondary-foreground: 240 10% 10%;
+
+  /* Muted colors */
+  --muted: 240 20% 96%;
+  --muted-foreground: 240 5% 46%;
+
+  /* Accent: Vibrant teal/cyan */
+  --accent: 180 80% 50%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Destructive: Warm red */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Borders and inputs */
+  --border: 240 20% 90%;
+  --input: 240 20% 90%;
+  --ring: 250 95% 63%;
+
+  /* Chart colors - vibrant palette */
+  --chart-1: 250 95% 63%;
+  --chart-2: 180 80% 50%;
+  --chart-3: 280 70% 60%;
+  --chart-4: 45 90% 55%;
+  --chart-5: 340 75% 55%;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 240 10% 8%;
+  --foreground: 0 0% 98%;
+
+  --card: 240 10% 12%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 10% 12%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 250 95% 68%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 240 10% 18%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 10% 18%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 180 80% 55%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 65%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 10% 20%;
+  --input: 240 10% 20%;
+  --ring: 250 95% 68%;
+
+  --chart-1: 250 95% 68%;
+  --chart-2: 180 80% 55%;
+  --chart-3: 280 70% 65%;
+  --chart-4: 45 90% 60%;
+  --chart-5: 340 75% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(250, 95%, 63%) 0%, hsl(280, 70%, 60%) 100%);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(180, 80%, 50%) 0%, hsl(200, 80%, 55%) 100%);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(240, 20%, 98%) 0%, hsl(260, 30%, 97%) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(250, 95%, 63%) 0%, hsl(280, 70%, 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px hsla(250, 95%, 63%, 0.15), 0 4px 12px hsla(250, 95%, 63%, 0.1);
+  }
+
+  .shadow-glow-hover:hover {
+    box-shadow: 0 0 30px hsla(250, 95%, 63%, 0.25), 0 8px 20px hsla(250, 95%, 63%, 0.2);
+  }
+}
