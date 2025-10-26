@@ -233,7 +233,7 @@ export async function getSafetyDataForLocation(
 /**
  * Calculate safety score for an entire route
  */
-export async function getRouteSefetyScore(
+export async function getRouteSafetyScore(
   coordinates: Array<{ lat: number; lng: number }>
 ): Promise<SafetyMetrics> {
   // Sample points along the route (every 5th coordinate to reduce API calls)
