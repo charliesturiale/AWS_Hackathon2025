@@ -153,8 +153,7 @@ watchman watch-del-all
 npx expo start --clear
 ```
 
-## 📚 Documentation
-- [Route Calculation Mathematics](./ROUTE_MATHEMATICS.md) - Deep dive into the algorithms and formulas
+
 
 ## 📄 License
 MIT
