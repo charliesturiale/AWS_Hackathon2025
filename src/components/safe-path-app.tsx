@@ -6,8 +6,6 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
-import SafetyFactors from "@/components/safety-factors"
-import RouteDetails from "@/components/route-details"
 import LocationInput from "@/components/location-input"
 import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
 import { saveLocation } from "@/services/savedLocations"
@@ -210,16 +208,6 @@ export default function SafePathApp() {
           </div>
         </div>
 
-        {/* Bottom Section - Safety Factors and Route Details */}
-        {routeCalculated && selectedRoute && (
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Safety Factors */}
-            <SafetyFactors route={selectedRoute} />
-
-            {/* Route Details */}
-            <RouteDetails route={selectedRoute} />
-          </div>
-        )}
       </div>
     </div>
   )
