@@ -14,7 +14,7 @@ export default function SafetyFactors({ route }: SafetyFactorsProps) {
   const factors = [
     {
       icon: Shield,
-      label: "Crime Safety",
+      label: "Social Safety",
       score: route.crimeScore,
       status: route.crimeScore >= 90 ? "Excellent" : route.crimeScore >= 80 ? "Good" : "Fair",
       color: "text-accent",

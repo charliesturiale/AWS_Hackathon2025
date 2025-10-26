@@ -4,10 +4,12 @@ import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MapPin, Navigation, Shield, ChevronRight, Settings } from "lucide-react"
+import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle } from "lucide-react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import SafetyFactors from "@/components/safety-factors"
 import RouteDetails from "@/components/route-details"
+import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
 
 export interface Route {
   id: number
@@ -30,89 +32,37 @@ export default function SafePathApp() {
   const [routeCalculated, setRouteCalculated] = useState(false)
   const [routes, setRoutes] = useState<Route[]>([])
   const [selectedRouteId, setSelectedRouteId] = useState<number>(1)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleCalculateRoute = () => {
-    if (origin && destination) {
-      const generatedRoutes: Route[] = [
-        {
-          id: 1,
-          name: "Safest Route",
-          distance: "2.6 mi",
-          time: "35 min",
-          safetyScore: 95,
-          crimeScore: 96,
-          timeScore: 92,
-          socialScore: 94,
-          pedestrianScore: 96,
-          color: "#10b981",
-          coordinates: [
-            { lat: 37.7749, lng: -122.4194 },
-            { lat: 37.7769, lng: -122.4174 },
-            { lat: 37.7789, lng: -122.4154 },
-            { lat: 37.7809, lng: -122.4134 },
-            { lat: 37.7829, lng: -122.4114 },
-            { lat: 37.7849, lng: -122.4094 },
-          ],
-          waypoints: [
-            { name: "Market Street", type: "Well-lit area", safe: true },
-            { name: "Union Square", type: "High foot traffic", safe: true },
-            { name: "Powell Street", type: "Main thoroughfare", safe: true },
-          ],
-        },
-        {
-          id: 2,
-          name: "Balanced Route",
-          distance: "2.4 mi",
-          time: "32 min",
-          safetyScore: 88,
-          crimeScore: 92,
-          timeScore: 85,
-          socialScore: 78,
-          pedestrianScore: 88,
-          color: "#3b82f6",
-          coordinates: [
-            { lat: 37.7749, lng: -122.4194 },
-            { lat: 37.7759, lng: -122.4164 },
-            { lat: 37.7779, lng: -122.4144 },
-            { lat: 37.7799, lng: -122.4124 },
-            { lat: 37.7819, lng: -122.4104 },
-            { lat: 37.7849, lng: -122.4094 },
-          ],
-          waypoints: [
-            { name: "Mission Street", type: "Moderate traffic", safe: true },
-            { name: "5th Street", type: "Commercial area", safe: true },
-            { name: "Howard Street", type: "Mixed use", safe: true },
-          ],
-        },
-        {
-          id: 3,
-          name: "Fastest Route",
-          distance: "2.1 mi",
-          time: "28 min",
-          safetyScore: 78,
-          crimeScore: 82,
-          timeScore: 75,
-          socialScore: 68,
-          pedestrianScore: 78,
-          color: "#f59e0b",
-          coordinates: [
-            { lat: 37.7749, lng: -122.4194 },
-            { lat: 37.7754, lng: -122.4154 },
-            { lat: 37.7774, lng: -122.4134 },
-            { lat: 37.7804, lng: -122.4114 },
-            { lat: 37.7834, lng: -122.4104 },
-            { lat: 37.7849, lng: -122.4094 },
-          ],
-          waypoints: [
-            { name: "6th Street", type: "Direct route", safe: false },
-            { name: "Folsom Street", type: "Less traffic", safe: true },
-            { name: "Harrison Street", type: "Industrial area", safe: false },
-          ],
-        },
-      ]
-      setRoutes(generatedRoutes)
+  const handleCalculateRoute = async () => {
+    if (!origin || !destination) return
+
+    // Check if GraphHopper API is configured
+    if (!isGraphHopperConfigured()) {
+      setError("GraphHopper API key not configured. Please add REACT_APP_GRAPHHOPPER_API_KEY to your .env file.")
+      return
+    }
+
+    setLoading(true)
+    setError(null)
+    setRouteCalculated(false)
+
+    try {
+      const result = await calculateRoutes(origin, destination)
+
+      if (!result) {
+        throw new Error("Could not calculate routes. Please check your addresses and try again.")
+      }
+
+      setRoutes(result.routes)
       setSelectedRouteId(1)
       setRouteCalculated(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred while calculating routes")
+      console.error("Route calculation error:", err)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -176,10 +126,31 @@ export default function SafePathApp() {
                   </div>
                 </div>
 
-                <Button onClick={handleCalculateRoute} className="w-full h-11 text-base font-semibold gradient-primary shadow-glow-hover transition-all" disabled={!origin || !destination}>
-                  Find Safest Route
-                  <ChevronRight className="ml-2 h-5 w-5" />
+                <Button
+                  onClick={handleCalculateRoute}
+                  className="w-full h-11 text-base font-semibold gradient-primary shadow-glow-hover transition-all"
+                  disabled={!origin || !destination || loading}
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                      Calculating Routes...
+                    </>
+                  ) : (
+                    <>
+                      Find Safest Route
+                      <ChevronRight className="ml-2 h-5 w-5" />
+                    </>
+                  )}
                 </Button>
+
+                {/* Error Display */}
+                {error && (
+                  <Alert variant="destructive" className="mt-4">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
               </div>
             </Card>
 
