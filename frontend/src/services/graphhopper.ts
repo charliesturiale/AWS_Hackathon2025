@@ -3,8 +3,11 @@ import { getRouteSafetyScore } from "./SafetyDataService"
 
 // Hardcode the API key since Vercel has issues with environment variables
 const GRAPHHOPPER_API_KEY = "ee6ac405-9a11-42e2-a0ac-dc333939f34b"
-const GEOCODING_URL = "https://graphhopper.com/api/1/geocode"
-const ROUTING_URL = "https://graphhopper.com/api/1/route"
+
+// Use Vercel API routes in production to avoid CORS issues
+const isProduction = process.env.NODE_ENV === 'production'
+const GEOCODING_URL = isProduction ? '/api/geocode' : "https://graphhopper.com/api/1/geocode"
+const ROUTING_URL = isProduction ? '/api/route' : "https://graphhopper.com/api/1/route"
 
 interface GeocodingResult {
   hits: Array<{
@@ -34,10 +37,12 @@ interface RoutingResult {
 export async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
   try {
     console.log("🔍 Attempting to geocode:", address);
-    console.log("🔑 Using API key:", GRAPHHOPPER_API_KEY.substring(0, 10) + "...");
+    console.log("🎯 Using", isProduction ? "Vercel API route" : "direct GraphHopper API");
     
-    const url = `${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`;
-    console.log("📍 Geocoding URL:", url.replace(GRAPHHOPPER_API_KEY, "[KEY]"));
+    const url = isProduction 
+      ? `${GEOCODING_URL}?q=${encodeURIComponent(address)}`
+      : `${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`;
+    console.log("📍 Geocoding URL:", url);
     
     const response = await fetch(url, {
       method: 'GET',
@@ -131,22 +136,31 @@ export async function calculateRoutes(
     }
 
     // Step 2: Get multiple route alternatives
-    // Build URL with multiple 'point' parameters
-    const params = new URLSearchParams({
-      vehicle: "foot", // walking routes
-      locale: "en",
-      points_encoded: "false",
-      algorithm: "alternative_route",
-      "alternative_route.max_paths": "3",
-      key: GRAPHHOPPER_API_KEY,
-    })
-
-    // Add points manually (URLSearchParams doesn't support duplicate keys in object literal)
-    params.append("point", `${originCoords.lat},${originCoords.lng}`)
-    params.append("point", `${destCoords.lat},${destCoords.lng}`)
-
-    const routingUrl = `${ROUTING_URL}?${params.toString()}`;
-    console.log("🗺️ Routing URL:", routingUrl.replace(GRAPHHOPPER_API_KEY, "[KEY]"));
+    let routingUrl: string;
+    
+    if (isProduction) {
+      // Use Vercel API route
+      const params = new URLSearchParams();
+      params.append('points', `${originCoords.lat},${originCoords.lng}`);
+      params.append('points', `${destCoords.lat},${destCoords.lng}`);
+      params.append('vehicle', 'foot');
+      routingUrl = `${ROUTING_URL}?${params.toString()}`;
+    } else {
+      // Direct GraphHopper API
+      const params = new URLSearchParams({
+        vehicle: "foot",
+        locale: "en",
+        points_encoded: "false",
+        algorithm: "alternative_route",
+        "alternative_route.max_paths": "3",
+        key: GRAPHHOPPER_API_KEY,
+      });
+      params.append("point", `${originCoords.lat},${originCoords.lng}`);
+      params.append("point", `${destCoords.lat},${destCoords.lng}`);
+      routingUrl = `${ROUTING_URL}?${params.toString()}`;
+    }
+    
+    console.log("🗺️ Routing URL:", routingUrl);
     
     const response = await fetch(routingUrl, {
       method: 'GET',
