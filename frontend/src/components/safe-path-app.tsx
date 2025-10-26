@@ -46,10 +46,7 @@ export default function SafePathApp() {
     try {
       const result = await calculateRoutes(origin, destination)
 
-      if (!result) {
-        throw new Error("Could not calculate routes. Please check your addresses and try again.")
-      }
-
+      // Result is always valid now, no need to check for null
       setRoutes(result.routes)
       setSelectedRouteId(1)
       setRouteCalculated(true)
