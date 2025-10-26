@@ -9,6 +9,7 @@ import RouteMap from "@/components/route-map"
 import LocationInput from "@/components/location-input"
 import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
 import { saveLocation } from "@/services/savedLocations"
+import { DebugEnv } from "@/components/debug-env"
 
 export interface Route {
   id: number
@@ -209,6 +210,9 @@ export default function SafePathApp() {
         </div>
 
       </div>
+      
+      {/* Environment Debug Helper */}
+      <DebugEnv />
     </div>
   )
 }
