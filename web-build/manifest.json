@@ -1,0 +1,21 @@
+{
+  "background_color": "#007AFF",
+  "display": "standalone",
+  "lang": "en",
+  "name": "SafePath SF",
+  "short_name": "SafePath SF",
+  "start_url": "/?utm_source=web_app_manifest",
+  "orientation": "portrait",
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "id": "com.safepath.sf"
+    },
+    {
+      "platform": "play",
+      "url": "http://play.google.com/store/apps/details?id=com.safepath.sf",
+      "id": "com.safepath.sf"
+    }
+  ],
+  "prefer_related_applications": true
+}

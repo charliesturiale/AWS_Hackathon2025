@@ -1,0 +1,1 @@
+{"ast":null,"code":"export{default}from'./uuid';","map":{"version":3,"names":["default"],"sources":["/Users/jamescunningham/Desktop/safepath-sf/node_modules/expo-modules-core/src/uuid/index.ts"],"sourcesContent":["export { default } from './uuid';\n"],"mappings":"AAAA,OAASA,OAAO,KAAQ,QAAQ","ignoreList":[]},"metadata":{},"sourceType":"module","externalDependencies":[]}

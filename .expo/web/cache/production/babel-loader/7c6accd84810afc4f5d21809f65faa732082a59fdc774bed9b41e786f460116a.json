@@ -1,0 +1,1 @@
+{"ast":null,"code":"export*from'./CoreModule';","map":{"version":3,"names":[],"sources":["/Users/jamescunningham/Desktop/safepath-sf/node_modules/expo-modules-core/src/web/index.web.ts"],"sourcesContent":["export * from './CoreModule';\n"],"mappings":"AAAA,WAAc,cAAc","ignoreList":[]},"metadata":{},"sourceType":"module","externalDependencies":[]}

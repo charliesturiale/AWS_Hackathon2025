@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npx expo export:web",
-  "outputDirectory": "web-build",
-  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
   "rewrites": [
     {
       "source": "/(.*)",
