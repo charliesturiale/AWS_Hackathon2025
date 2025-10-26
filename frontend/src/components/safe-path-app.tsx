@@ -7,9 +7,8 @@ import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircl
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import LocationInput from "@/components/location-input"
-import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
+import { calculateRoutes } from "@/services/graphhopper"
 import { saveLocation } from "@/services/savedLocations"
-import { DebugEnv } from "@/components/debug-env"
 
 export interface Route {
   id: number
@@ -38,11 +37,7 @@ export default function SafePathApp() {
   const handleCalculateRoute = async () => {
     if (!origin || !destination) return
 
-    // Log API configuration status
-    console.log('GraphHopper configured:', isGraphHopperConfigured());
-    if (!isGraphHopperConfigured()) {
-      console.warn('GraphHopper API key not configured. Using fallback mock data.');
-    }
+    // API key is now hardcoded, no need to check
 
     setLoading(true)
     setError(null)
@@ -210,9 +205,6 @@ export default function SafePathApp() {
         </div>
 
       </div>
-      
-      {/* Environment Debug Helper */}
-      <DebugEnv />
     </div>
   )
 }
