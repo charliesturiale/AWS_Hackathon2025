@@ -36,19 +36,23 @@ export async function geocodeAddress(address: string): Promise<{ lat: number; ln
     const url = `${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`;
     const response = await fetch(url)
 
-    if (!response.ok) {
-      throw new Error(`Geocoding failed: ${response.statusText}`)
+    const data = await response.json()
+    
+    // Check for API errors in response
+    if ((data as any).message) {
+      console.error("GraphHopper API error:", (data as any).message)
+      return null
     }
 
-    const data: GeocodingResult = await response.json()
-
     if (data.hits && data.hits.length > 0) {
+      console.log("Geocoding successful for:", address)
       return data.hits[0].point
     }
 
+    console.warn("No geocoding results for:", address)
     return null
   } catch (error) {
-    console.error("Geocoding error:", error)
+    console.error("Geocoding network error:", error)
     return null
   }
 }
