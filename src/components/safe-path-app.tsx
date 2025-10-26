@@ -3,14 +3,15 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import SafetyFactors from "@/components/safety-factors"
 import RouteDetails from "@/components/route-details"
 import TimeTolerance from "@/components/time-tolerance"
+import LocationInput from "@/components/location-input"
 import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
+import { saveLocation } from "@/services/savedLocations"
 
 export interface Route {
   id: number
@@ -59,6 +60,10 @@ export default function SafePathApp() {
       setRoutes(result.routes)
       setSelectedRouteId(1)
       setRouteCalculated(true)
+
+      // Save locations to localStorage for future use
+      saveLocation(origin)
+      saveLocation(destination)
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred while calculating routes")
       console.error("Route calculation error:", err)
@@ -103,28 +108,24 @@ export default function SafePathApp() {
               <div className="space-y-5">
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-foreground">Starting Point</label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" />
-                    <Input
-                      placeholder="Enter your location"
-                      value={origin}
-                      onChange={(e) => setOrigin(e.target.value)}
-                      className="pl-10 h-11 border-2 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                    />
-                  </div>
+                  <LocationInput
+                    value={origin}
+                    onChange={setOrigin}
+                    placeholder="Enter your location"
+                    icon={<MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" />}
+                    className="focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-foreground">Destination</label>
-                  <div className="relative">
-                    <Navigation className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-accent" />
-                    <Input
-                      placeholder="Where are you going?"
-                      value={destination}
-                      onChange={(e) => setDestination(e.target.value)}
-                      className="pl-10 h-11 border-2 focus:border-accent focus:ring-2 focus:ring-accent/20"
-                    />
-                  </div>
+                  <LocationInput
+                    value={destination}
+                    onChange={setDestination}
+                    placeholder="Where are you going?"
+                    icon={<Navigation className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-accent" />}
+                    className="focus:border-accent focus:ring-2 focus:ring-accent/20"
+                  />
                 </div>
 
                 <Button

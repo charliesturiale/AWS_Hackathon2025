@@ -30,7 +30,7 @@ export default function SafetyFactors({ route }: SafetyFactorsProps) {
     },
     {
       icon: Construction,
-      label: "Social Obstructions",
+      label: "Obstructions",
       score: route.socialScore,
       status: route.socialScore >= 90 ? "Excellent" : route.socialScore >= 80 ? "Good" : "Fair",
       color: "text-primary",
