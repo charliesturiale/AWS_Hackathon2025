@@ -27,17 +27,19 @@ npm run build
 #### Deploy to Vercel (Recommended)
 1. Connect your GitHub repo to Vercel
 2. Select the `James` branch
-3. Set build command: `npm run build`
-4. Set output directory: `build`
-5. Add environment variables (see below)
-6. Deploy!
+3. **Set Root Directory**: `frontend`
+4. Build command: `npm run build` (auto-detected)
+5. Output directory: `build` (auto-detected)
+6. Add environment variables (see below)
+7. Deploy!
 
 #### Deploy to Netlify
 1. Connect GitHub repo
 2. Branch: `James`
-3. Build command: `npm run build`
-4. Publish directory: `build`
-5. Add environment variables
+3. **Base directory**: `frontend`
+4. Build command: `npm run build`
+5. Publish directory: `frontend/build`
+6. Add environment variables
 
 ## 🛠️ Tech Stack
 - **Frontend**: React + TypeScript
@@ -52,19 +54,23 @@ npm run build
 ## 📁 Project Structure
 ```
 safepath-sf/
-├── src/
-│   ├── components/        # React components
-│   │   ├── safe-path-app.tsx    # Main app component
-│   │   ├── route-map.tsx        # Leaflet map integration
-│   │   ├── location-input.tsx   # Address autocomplete
-│   │   └── route-details.tsx    # Route information
-│   ├── services/          # API integrations
-│   │   ├── graphhopper.ts       # Routing service
-│   │   ├── SafetyDataService.ts # SF Open Data APIs
-│   │   └── savedLocations.ts    # Local storage
-│   └── lib/              # Utilities
-├── public/               # Static assets
-└── build/               # Production build
+├── frontend/             # Main frontend application
+│   ├── src/
+│   │   ├── components/        # React components
+│   │   │   ├── safe-path-app.tsx    # Main app component
+│   │   │   ├── route-map.tsx        # Leaflet map integration
+│   │   │   ├── location-input.tsx   # Address autocomplete
+│   │   │   └── route-details.tsx    # Route information
+│   │   ├── services/          # API integrations
+│   │   │   ├── graphhopper.ts       # Routing service
+│   │   │   ├── SafetyDataService.ts # SF Open Data APIs
+│   │   │   └── savedLocations.ts    # Local storage
+│   │   └── lib/              # Utilities
+│   ├── public/           # Static assets
+│   ├── vercel.json       # Vercel configuration
+│   └── package.json      # Dependencies
+├── src/                  # Legacy React app (deprecated)
+└── README.md            # Documentation
 ```
 
 ## 🌟 Key Features
