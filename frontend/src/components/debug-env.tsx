@@ -3,14 +3,15 @@ import { Card } from '@/components/ui/card';
 import { AlertCircle, CheckCircle, XCircle } from 'lucide-react';
 
 export function DebugEnv() {
-  const graphhopperKey = process.env.REACT_APP_GRAPHHOPPER_API_KEY;
+  // API key is now hardcoded due to Vercel environment variable limitations
+  const graphhopperKey = "ee6ac405-9a11-42e2-a0ac-dc333939f34b";
   const datasfKey = process.env.REACT_APP_DATASF_API_KEY;
   
-  const hasGraphhopper = graphhopperKey && graphhopperKey.length > 0;
+  const hasGraphhopper = true; // Always true since it's hardcoded
   const hasDataSF = datasfKey && datasfKey.length > 0;
   
-  // Only show in development or if there's an issue
-  if (process.env.NODE_ENV === 'production' && hasGraphhopper) {
+  // Only show in development
+  if (process.env.NODE_ENV === 'production') {
     return null;
   }
   

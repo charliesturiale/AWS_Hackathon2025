@@ -1,7 +1,8 @@
 import type { Route } from "@/components/safe-path-app"
 import { getRouteSafetyScore } from "./SafetyDataService"
 
-const GRAPHHOPPER_API_KEY = process.env.REACT_APP_GRAPHHOPPER_API_KEY || ""
+// Hardcode the API key since Vercel has issues with environment variables
+const GRAPHHOPPER_API_KEY = "ee6ac405-9a11-42e2-a0ac-dc333939f34b"
 const GEOCODING_URL = "https://graphhopper.com/api/1/geocode"
 const ROUTING_URL = "https://graphhopper.com/api/1/route"
 
@@ -288,5 +289,5 @@ export async function calculateRoutes(
  * Check if GraphHopper API key is configured
  */
 export function isGraphHopperConfigured(): boolean {
-  return GRAPHHOPPER_API_KEY.length > 0
+  return true // Always true since API key is hardcoded
 }
