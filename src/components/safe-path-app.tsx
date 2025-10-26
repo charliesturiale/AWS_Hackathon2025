@@ -9,6 +9,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import SafetyFactors from "@/components/safety-factors"
 import RouteDetails from "@/components/route-details"
+import TimeTolerance from "@/components/time-tolerance"
 import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
 
 export interface Route {
@@ -209,14 +210,20 @@ export default function SafePathApp() {
           </div>
         </div>
 
-        {/* Bottom Section - Safety Factors and Route Details Side by Side */}
+        {/* Bottom Section - Time Tolerance, Safety Factors and Route Details */}
         {routeCalculated && selectedRoute && (
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Safety Factors */}
-            <SafetyFactors route={selectedRoute} />
+          <div className="space-y-6">
+            {/* Time Tolerance Section */}
+            <TimeTolerance />
 
-            {/* Route Details */}
-            <RouteDetails route={selectedRoute} />
+            {/* Safety Factors and Route Details Side by Side */}
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* Safety Factors */}
+              <SafetyFactors route={selectedRoute} />
+
+              {/* Route Details */}
+              <RouteDetails route={selectedRoute} />
+            </div>
           </div>
         )}
       </div>
