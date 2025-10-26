@@ -1,8 +1,13 @@
 import React from 'react';
-import SafePathApp from './components/safe-path-app';
+import SafePathApp from '@/components/safe-path-app'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 function App() {
-  return <SafePathApp />;
+  return (
+    <ErrorBoundary>
+      <SafePathApp />
+    </ErrorBoundary>
+  )
 }
 
-export default App;
+export default App
