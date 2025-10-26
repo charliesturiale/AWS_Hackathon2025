@@ -32,7 +32,9 @@ interface RoutingResult {
  */
 export async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
   try {
-    const response = await fetch(`${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`)
+    console.log('Geocoding with API key:', GRAPHHOPPER_API_KEY ? `${GRAPHHOPPER_API_KEY.substring(0, 8)}...` : 'MISSING');
+    const url = `${GEOCODING_URL}?q=${encodeURIComponent(address)}&key=${GRAPHHOPPER_API_KEY}`;
+    const response = await fetch(url)
 
     if (!response.ok) {
       throw new Error(`Geocoding failed: ${response.statusText}`)
