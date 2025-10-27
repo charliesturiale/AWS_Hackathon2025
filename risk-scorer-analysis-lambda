@@ -1,0 +1,81 @@
+import boto3, json, gzip, io, datetime as dt
+
+s3 = boto3.client("s3")
+
+BUCKET = "sf-safety-data-bucket"
+RAW_PREFIX = "raw/"
+CLASSIFIED_PREFIX = "classified/"
+
+HIGH = {"EXPLOSIVE FOUND","EXPLOSION","FIGHT W/WEAPONS","ASSAULT / BATTERY DV",
+        "ROBBERY","STRONGARM ROBBERY"}
+MED = {"FIGHT NO WEAPON","SUSPICIOUS PERSON","THREATS / HARASSMENT",
+       "PERSON BREAKING IN","BURGLARY"}
+LOW = {"INDECENT EXPOSURE","PURSE SNATCH"}
+
+def determine_risk(desc):
+    text = desc.upper()
+    if any(k in text for k in HIGH): return 3
+    if any(k in text for k in MED):  return 2
+    if any(k in text for k in LOW):  return 1
+    return 1  # default low
+
+
+def lambda_handler(event, context):
+    # --- handle both S3-triggered and manual test events ---
+    if "Records" in event:
+        rec = event["Records"][0]
+        key = rec["s3"]["object"]["key"]
+    elif "s3_key" in event:
+        # allow manual invocation from console/test
+        key = event["s3_key"]
+    else:
+        return {
+            "statusCode": 400,
+            "body": "Missing 'Records' or 's3_key' in event"
+        }
+
+    # --- read raw file from S3 ---
+    try:
+        obj = s3.get_object(Bucket=BUCKET, Key=key)
+        with gzip.GzipFile(fileobj=io.BytesIO(obj["Body"].read()), mode="rb") as f:
+            lines = [json.loads(line) for line in f.readlines()]
+    except Exception as e:
+        return {"statusCode": 500, "body": f"Failed to read or parse input: {e}"}
+
+    # --- classify and calculate safety score ---
+    total, weighted = 0, 0
+    out_data = []
+
+    for r in lines:
+        desc = f"{r.get('call_type_original_desc','')} {r.get('call_type_final_desc','')}"
+        risk = determine_risk(desc)
+        r["risk_level"] = risk
+        out_data.append(r)
+        total += 1
+        weighted += risk
+
+    avg_risk = weighted / total if total else 0
+    safety_score = round(4 - avg_risk, 2)
+
+    summary = {
+        "records": total,
+        "average_risk": round(avg_risk, 2),
+        "safety_score": safety_score,
+        "input_key": key
+    }
+
+    # --- compress & save result back to S3 ---
+    buf = io.BytesIO()
+    with gzip.GzipFile(fileobj=buf, mode="wb") as gz:
+        gz.write(json.dumps({"summary": summary, "classified": out_data}).encode())
+
+    out_key = f"{CLASSIFIED_PREFIX}{dt.datetime.utcnow():%Y/%m/%d}/classified.json.gz"
+    s3.put_object(Bucket=BUCKET, Key=out_key, Body=buf.getvalue())
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "summary": summary,
+            "output_key": out_key
+        })
+    }
