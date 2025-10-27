@@ -1,0 +1,95 @@
+import os
+import io
+import json
+import gzip
+import boto3
+import requests
+import datetime as dt
+
+# -----------------------------
+# Clients
+# -----------------------------
+s3 = boto3.client("s3")
+secrets = boto3.client("secretsmanager")
+
+# -----------------------------
+# Environment variables
+# -----------------------------
+SECRET_ARN = os.getenv("SF_API_SECRET_ARN")   # points to your sf-data-api-key2 secret ARN
+BUCKET = "sf-safety-data-bucket"              # replace with your actual S3 bucket name
+PREFIX = "raw/"                               # folder prefix for uploads
+
+# -----------------------------
+# Helper: Retrieve API key (App Token) securely
+# -----------------------------
+def get_api_key():
+    """
+    Fetches the App Token (api_key2) stored in AWS Secrets Manager.
+    """
+    try:
+        response = secrets.get_secret_value(SecretId=SECRET_ARN)
+        secret_dict = json.loads(response["SecretString"])
+        return secret_dict["api_key2"]
+    except Exception as e:
+        print(f"Error fetching API key: {e}")
+        raise
+
+# -----------------------------
+# Main Lambda Handler
+# -----------------------------
+def lambda_handler(event, context):
+    try:
+        # 1️⃣ Get the App Token
+        api_key = get_api_key()
+
+        # 2️⃣ Define the SF Gov API URL (Police Department incident dataset)
+        url = (
+            "https://data.sfgov.org/resource/gnap-fj3t.json?"
+            "$query=SELECT entry_datetime, call_type_original_desc, "
+            "call_type_final_desc, intersection_name, intersection_point "
+            "WHERE caseless_one_of(call_type_original_desc, "
+            "'EXPLOSIVE FOUND','SUSPICIOUS PERSON','FIGHT W/WEAPONS','FIGHT NO WEAPON',"
+            "'ASSAULT / BATTERY DV','PURSE SNATCH','EXPLOSION','ROBBERY',"
+            "'THREATS / HARASSMENT','STRONGARM ROBBERY','INDECENT EXPOSURE','PERSON BREAKING IN') "
+            "ORDER BY entry_datetime DESC NULL LAST"
+        )
+
+        # 3️⃣ Make the request with authentication header
+        headers = {"X-App-Token": api_key}
+        response = requests.get(url, headers=headers, timeout=30)
+        response.raise_for_status()
+        data = response.json()
+
+        # 4️⃣ Handle empty result
+        if not data:
+            print("No data returned from API.")
+            return {"status": "no_data", "records": 0}
+
+        # 5️⃣ Compress JSON data to GZIP (line-separated NDJSON)
+        buffer = io.BytesIO()
+        with gzip.GzipFile(fileobj=buffer, mode="wb") as gz:
+            for row in data:
+                gz.write((json.dumps(row) + "\n").encode("utf-8"))
+
+        # 6️⃣ Generate S3 key path
+        key = f"{PREFIX}{dt.datetime.utcnow():%Y/%m/%d}/sfdata.json.gz"
+
+        # 7️⃣ Upload to S3
+        s3.put_object(
+            Bucket=BUCKET,
+            Key=key,
+            Body=buffer.getvalue(),
+            ContentType="application/x-ndjson",
+            ContentEncoding="gzip"
+        )
+
+        # 8️⃣ Log and return summary
+        print(f"Uploaded {len(data)} records to s3://{BUCKET}/{key}")
+        return {"status": "uploaded", "records": len(data), "key": key}
+
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error: {http_err}")
+        raise
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        raise
