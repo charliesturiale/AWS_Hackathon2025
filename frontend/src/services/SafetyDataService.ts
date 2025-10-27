@@ -44,10 +44,8 @@ async function fetch311Incidents(): Promise<Incident[]> {
     
     const response = await fetch(url, {
       headers: {
-        'Accept': 'application/json',
-        ...(process.env.REACT_APP_DATASF_API_KEY && {
-          'X-App-Token': process.env.REACT_APP_DATASF_API_KEY
-        })
+        'Accept': 'application/json'
+        // DataSF API key is optional, the API works without it
       }
     })
     
@@ -109,10 +107,8 @@ async function fetchDispatchIncidents(): Promise<Incident[]> {
     
     const response = await fetch(url, {
       headers: {
-        'Accept': 'application/json',
-        ...(process.env.REACT_APP_DATASF_API_KEY && {
-          'X-App-Token': process.env.REACT_APP_DATASF_API_KEY
-        })
+        'Accept': 'application/json'
+        // DataSF API key is optional, the API works without it
       }
     })
     
@@ -180,12 +176,8 @@ export async function getSafetyDataForLocation(
   lng: number,
   radiusMeters: number = 500
 ): Promise<SafetyMetrics> {
-  const [incidents311, dispatchIncidents] = await Promise.all([
-    fetch311Incidents(),
-    fetchDispatchIncidents()
-  ])
-  
-  const allIncidents = [...incidents311, ...dispatchIncidents]
+  // Use mock incidents instead of API calls
+  const allIncidents = await getRecentIncidents()
   
   // Filter incidents within radius
   const nearbyIncidents = allIncidents.filter(incident => {
@@ -309,19 +301,11 @@ export async function getRouteSafetyScore(
  * Get recent high-severity incidents for display on map
  */
 export async function getRecentIncidents(): Promise<Incident[]> {
-  const [incidents311, dispatchIncidents] = await Promise.all([
-    fetch311Incidents(),
-    fetchDispatchIncidents()
-  ])
+  // Import parsed CSV data
+  const { allMockIncidents } = await import('@/data/parsedIncidents')
   
-  // Filter for incidents in last 48 hours
-  const cutoffTime = new Date()
-  cutoffTime.setHours(cutoffTime.getHours() - 48)
-  
-  return [...incidents311, ...dispatchIncidents]
-    .filter(incident => incident.datetime > cutoffTime)
-    .sort((a, b) => b.datetime.getTime() - a.datetime.getTime())
-    .slice(0, 100) // Limit to most recent 100 incidents
+  // Return parsed CSV incidents for demo
+  return allMockIncidents
 }
 
 export type { Incident, SafetyMetrics }

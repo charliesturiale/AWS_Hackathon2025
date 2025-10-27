@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle } from "lucide-react"
+import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle, Clock, Sparkles } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import LocationInput from "@/components/location-input"
@@ -146,41 +146,119 @@ export default function SafePathApp() {
               </div>
             </Card>
 
+            {/* Demo Suggestions */}
+            {!routeCalculated && (
+              <Card className="p-4 shadow-lg border-2 border-border/50 bg-gradient-to-br from-primary/5 to-accent/5 backdrop-blur">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="h-4 w-4 text-primary" />
+                  <h3 className="text-sm font-display font-bold text-foreground">Try a Demo Route</h3>
+                </div>
+                <div className="space-y-2">
+                  <button
+                    onClick={() => {
+                      setOrigin("Civic Center BART Station, San Francisco, CA")
+                      setDestination("Union Square, San Francisco, CA")
+                    }}
+                    className="w-full p-3 text-left rounded-lg border border-border/50 hover:border-primary/50 hover:bg-white/50 transition-all text-xs"
+                  >
+                    <div className="font-semibold text-foreground mb-1">Downtown Route</div>
+                    <div className="text-muted-foreground">Civic Center → Union Square</div>
+                    <div className="text-muted-foreground italic mt-1">Mixed safety zones, busy area</div>
+                  </button>
+                  <button
+                    onClick={() => {
+                      setOrigin("16th St Mission BART Station, San Francisco, CA")
+                      setDestination("Dolores Park, San Francisco, CA")
+                    }}
+                    className="w-full p-3 text-left rounded-lg border border-border/50 hover:border-primary/50 hover:bg-white/50 transition-all text-xs"
+                  >
+                    <div className="font-semibold text-foreground mb-1">Mission District Route</div>
+                    <div className="text-muted-foreground">16th St BART → Dolores Park</div>
+                    <div className="text-muted-foreground italic mt-1">Varying safety profiles</div>
+                  </button>
+                </div>
+              </Card>
+            )}
+
             {routeCalculated && routes.length > 0 && (
               <Card className="p-6 shadow-lg border-2 border-border/50 bg-white/90 backdrop-blur">
                 <h2 className="mb-5 text-xl font-display font-bold text-foreground">Route Options</h2>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {routes.map((route) => (
                     <button
                       key={route.id}
                       onClick={() => setSelectedRouteId(route.id)}
-                      className={`w-full rounded-xl border-2 p-4 text-left transition-all duration-200 ${
+                      className={`relative w-full rounded-xl border-2 text-left transition-all duration-200 overflow-hidden ${
                         selectedRouteId === route.id
-                          ? "border-primary bg-primary/10 shadow-md scale-[1.02]"
-                          : "border-border/50 bg-white hover:border-primary/50 hover:shadow-md"
+                          ? "border-primary shadow-lg scale-[1.02]"
+                          : "border-border/50 hover:border-primary/50 hover:shadow-md"
                       }`}
                     >
-                      <div className="mb-2 flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="h-4 w-4 rounded-full shadow-sm" style={{ backgroundColor: route.color }} />
-                          <h3 className="font-display font-bold text-foreground">{route.name}</h3>
+                      {/* Color indicator bar */}
+                      <div className="absolute left-0 top-0 bottom-0 w-1" style={{ backgroundColor: route.color }}></div>
+                      
+                      <div className="p-4 pl-5">
+                        <div className="mb-3 flex items-start justify-between">
+                          <div>
+                            <h3 className="font-display font-bold text-foreground text-base">{route.name}</h3>
+                            <p className="text-xs text-muted-foreground mt-0.5">
+                              {route.id === 1 && "Maximum safety • Well-lit paths"}
+                              {route.id === 2 && "Balanced approach • Good coverage"}
+                              {route.id === 3 && "Quickest arrival • Direct route"}
+                            </p>
+                          </div>
+                          <span
+                            className={`text-sm font-bold px-2.5 py-1 rounded-lg ${
+                              route.safetyScore >= 85
+                                ? "bg-green-100 text-green-700 border border-green-200"
+                                : route.safetyScore >= 70
+                                  ? "bg-blue-100 text-blue-700 border border-blue-200"
+                                  : "bg-orange-100 text-orange-700 border border-orange-200"
+                            }`}
+                          >
+                            {route.safetyScore}%
+                          </span>
                         </div>
-                        <span
-                          className={`text-sm font-bold px-2.5 py-1 rounded-lg ${
-                            route.safetyScore >= 90
-                              ? "bg-accent/15 text-accent"
-                              : route.safetyScore >= 80
-                                ? "bg-primary/15 text-primary"
-                                : "bg-yellow-500/15 text-yellow-600"
-                          }`}
-                        >
-                          {route.safetyScore}/100
-                        </span>
-                      </div>
-                      <div className="flex gap-4 text-sm text-muted-foreground font-medium">
-                        <span>{route.distance}</span>
-                        <span>•</span>
-                        <span>{route.time}</span>
+                        
+                        {/* Time and Distance */}
+                        <div className="flex gap-6 text-sm mb-3">
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="h-3.5 w-3.5" style={{ color: route.color }} />
+                            <span className="font-semibold text-foreground">{route.time}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <Navigation className="h-3.5 w-3.5" style={{ color: route.color }} />
+                            <span className="font-semibold text-foreground">{route.distance}</span>
+                          </div>
+                        </div>
+                        
+                        {/* Score bars */}
+                        <div className="grid grid-cols-2 gap-3">
+                          <div>
+                            <div className="flex justify-between items-center mb-1">
+                              <span className="text-xs text-muted-foreground">Crime Safety</span>
+                              <span className="text-xs font-semibold">{route.crimeScore}%</span>
+                            </div>
+                            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full bg-gradient-to-r from-red-400 to-red-500 rounded-full transition-all duration-700"
+                                style={{ width: `${route.crimeScore}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="flex justify-between items-center mb-1">
+                              <span className="text-xs text-muted-foreground">Speed Score</span>
+                              <span className="text-xs font-semibold">{route.timeScore}%</span>
+                            </div>
+                            <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-700"
+                                style={{ width: `${route.timeScore}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </button>
                   ))}
