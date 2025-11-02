@@ -114,6 +114,33 @@ function generateMockRoute(start: { lat: number; lng: number }, end: { lat: numb
 }
 
 /**
+ * Calculate safety-adjusted walking time
+ * Accounts for how safety factors affect actual walking speed:
+ * - Low safety (0-60): People walk 20% slower due to caution/avoidance
+ * - Medium safety (60-80): Normal walking speed
+ * - High safety (80-100): People walk 10% faster with confidence
+ */
+function calculateSafetyAdjustedTime(baseTimeMinutes: number, safetyScore: number): number {
+  let speedMultiplier = 1.0 // Normal speed
+  
+  if (safetyScore < 60) {
+    // Low safety: walk 20% slower (more cautious, avoiding areas, hesitation)
+    speedMultiplier = 0.8
+  } else if (safetyScore < 80) {
+    // Medium safety: slight reduction (some caution)
+    speedMultiplier = 0.95
+  } else {
+    // High safety: walk 10% faster (confidence, no hesitation, direct walking)
+    speedMultiplier = 1.1
+  }
+  
+  // Adjust time: slower speed = longer time, faster speed = shorter time
+  const adjustedTime = baseTimeMinutes / speedMultiplier
+  
+  return Math.round(adjustedTime)
+}
+
+/**
  * Calculate routes between two points using GraphHopper Routing API
  * Creates three distinct route types:
  * 1. Safest - Avoids high-crime areas, may be longer
@@ -298,6 +325,10 @@ export async function calculateRoutes(
         // Get real-time safety data from SF APIs
         const safetyMetrics = await getRouteSafetyScore(coordinates)
 
+        // Adjust time based on safety factors (how safety affects actual walking speed)
+        const adjustedTimeMinutes = calculateSafetyAdjustedTime(timeInMinutes, safetyMetrics.safetyScore)
+        timeInMinutes = adjustedTimeMinutes
+
         // Generate route name based on safety scores
         const routeName =
           safetyMetrics.safetyScore >= 90
@@ -366,7 +397,6 @@ export async function calculateRoutes(
         const timeB = parseTime(b.time)
         return timeA - timeB
       })
-      const fastestRoute = routesByTime[0]
       
       // Sort by distance to find most direct
       const routesByDistance = [...convertedRoutes].sort((a, b) => {
@@ -375,6 +405,53 @@ export async function calculateRoutes(
         return distA - distB
       })
       const mostDirectRoute = routesByDistance[0]
+      
+      // Find fastest route considering BOTH time and directness
+      // Use a combined score: 70% time, 30% distance
+      // This ensures fastest route is both quick AND reasonably direct
+      const mostDirectDistance = parseDistance(mostDirectRoute.distance)
+      
+      // Filter out routes that are significantly longer than the most direct (more than 25% longer)
+      // A "fastest" route shouldn't be much less direct than the most direct route
+      const reasonableRoutes = convertedRoutes.filter(route => {
+        const routeDist = parseDistance(route.distance)
+        return routeDist <= mostDirectDistance * 1.25 // Max 25% longer than most direct
+      })
+      
+      // If we filtered out all routes, use all routes (fallback)
+      const routesToConsider = reasonableRoutes.length > 0 ? reasonableRoutes : convertedRoutes
+      
+      const fastestRoute = [...routesToConsider].sort((a, b) => {
+        const timeA = parseTime(a.time)
+        const timeB = parseTime(b.time)
+        const distA = parseDistance(a.distance)
+        const distB = parseDistance(b.distance)
+        
+        // Normalize scores (lower is better for both time and distance)
+        const maxTime = Math.max(...routesToConsider.map(r => parseTime(r.time)))
+        const maxDist = Math.max(...routesToConsider.map(r => parseDistance(r.distance)))
+        const minTime = Math.min(...routesToConsider.map(r => parseTime(r.time)))
+        const minDist = Math.min(...routesToConsider.map(r => parseDistance(r.distance)))
+        
+        // Normalize to 0-1 range (0 = best, 1 = worst)
+        const timeScoreA = maxTime > minTime ? (timeA - minTime) / (maxTime - minTime) : 0
+        const timeScoreB = maxTime > minTime ? (timeB - minTime) / (maxTime - minTime) : 0
+        const distScoreA = maxDist > minDist ? (distA - minDist) / (maxDist - minDist) : 0
+        const distScoreB = maxDist > minDist ? (distB - minDist) / (maxDist - minDist) : 0
+        
+        // Combined score: 70% time, 30% distance
+        const combinedScoreA = (timeScoreA * 0.7) + (distScoreA * 0.3)
+        const combinedScoreB = (timeScoreB * 0.7) + (distScoreB * 0.3)
+        
+        return combinedScoreA - combinedScoreB
+      })[0]
+      
+      console.log(`🏃 Fastest route selection:`, {
+        fastestTime: parseTime(fastestRoute.time),
+        fastestDistance: parseDistance(fastestRoute.distance),
+        mostDirectDistance: mostDirectDistance,
+        directnessRatio: (parseDistance(fastestRoute.distance) / mostDirectDistance).toFixed(2)
+      })
       
       // Check if safest route is also most direct - if so, it should logically be faster
       const isSafestAlsoDirect = safestRoute.id === mostDirectRoute.id

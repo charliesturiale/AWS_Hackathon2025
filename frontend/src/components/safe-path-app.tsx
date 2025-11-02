@@ -202,7 +202,7 @@ export default function SafePathApp() {
                             <p className="text-xs text-muted-foreground mt-0.5">
                               {route.id === 1 && "Safest • Well-lit"}
                               {route.id === 2 && "Balanced • Mixed"}
-                              {route.id === 3 && "Fastest • Direct"}
+                              {route.id === 3 && "Fastest • Quickest time"}
                             </p>
                           </div>
                           <span
