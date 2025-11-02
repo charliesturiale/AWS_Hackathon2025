@@ -1,5 +1,6 @@
 import type { Route } from "@/components/safe-path-app"
-import { getRouteSafetyScore } from "./SafetyDataService"
+import { getRouteSafetyScore, getRecentIncidents } from "./SafetyDataService"
+import { applyIntelligentRerouting } from "./routeOptimizer"
 
 // Hardcode the API key since Vercel has issues with environment variables
 const GRAPHHOPPER_API_KEY = "ee6ac405-9a11-42e2-a0ac-dc333939f34b"
@@ -211,16 +212,88 @@ export async function calculateRoutes(
     }
 
     // Step 3: Convert GraphHopper routes to our Route format with real safety data
+    const allIncidents = await getRecentIncidents() // Get all incidents once
+    
     const convertedRoutes: Route[] = await Promise.all(
       data.paths.map(async (path, index) => {
-        const distanceInMiles = (path.distance / 1609.34).toFixed(1)
-        const timeInMinutes = Math.round(path.time / 1000 / 60)
+        let distanceInMiles = (path.distance / 1609.34).toFixed(1)
+        let timeInMinutes = Math.round(path.time / 1000 / 60)
 
         // Convert coordinates from [lng, lat] to {lat, lng}
-        const coordinates = path.points.coordinates.map((coord) => ({
+        let coordinates = path.points.coordinates.map((coord) => ({
           lat: coord[1],
           lng: coord[0],
         }))
+
+        // Apply intelligent rerouting for safest route (route 1 only)
+        if (index === 0) {
+          console.log('🛡️ Applying intelligent rerouting for safest route...')
+          try {
+            const optimizedCoordinates = await applyIntelligentRerouting(
+              coordinates,
+              allIncidents
+            )
+            
+            // If waypoints were added, recalculate route through GraphHopper with waypoints
+            if (optimizedCoordinates.length > coordinates.length) {
+              console.log(`✅ Added ${optimizedCoordinates.length - coordinates.length} waypoints for safety`)
+              
+              // Build new route request with waypoints
+              const waypointParams = new URLSearchParams({
+                vehicle: "foot",
+                locale: "en",
+                points_encoded: "false",
+                key: GRAPHHOPPER_API_KEY,
+              })
+              
+              // Add all points including waypoints
+              for (const point of optimizedCoordinates) {
+                waypointParams.append("point", `${point.lat},${point.lng}`)
+              }
+              
+              try {
+                const waypointResponse = await fetch(
+                  `${ROUTING_URL}?${waypointParams.toString()}`,
+                  {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' },
+                    mode: 'cors'
+                  }
+                )
+                
+                if (waypointResponse.ok) {
+                  const waypointData: RoutingResult = await waypointResponse.json()
+                  if (waypointData.paths && waypointData.paths.length > 0) {
+                    // Use the optimized route and update distance/time
+                    const optimizedPath = waypointData.paths[0]
+                    coordinates = optimizedPath.points.coordinates.map((coord) => ({
+                      lat: coord[1],
+                      lng: coord[0],
+                    }))
+                    // Recalculate distance and time based on the new route
+                    distanceInMiles = (optimizedPath.distance / 1609.34).toFixed(1)
+                    timeInMinutes = Math.round(optimizedPath.time / 1000 / 60)
+                    console.log(`✅ Successfully recalculated route with safety waypoints: ${distanceInMiles} mi, ${timeInMinutes} min`)
+                  }
+                }
+              } catch (waypointError) {
+                console.warn('Could not recalculate route with waypoints, using optimized coordinates:', waypointError)
+                // Use the optimized coordinates directly
+                // Estimate distance/time increase based on waypoints added
+                const waypointIncrease = (optimizedCoordinates.length - coordinates.length) / coordinates.length
+                coordinates = optimizedCoordinates
+                // Estimate ~10% increase per waypoint group (rough approximation)
+                distanceInMiles = ((path.distance / 1609.34) * (1 + waypointIncrease * 0.1)).toFixed(1)
+                timeInMinutes = Math.round((path.time / 1000 / 60) * (1 + waypointIncrease * 0.1))
+                console.log(`⚠️ Using estimated time/distance due to waypoint recalculation failure`)
+              }
+            } else {
+              console.log('ℹ️ No waypoints needed for this route')
+            }
+          } catch (error) {
+            console.warn('Error in intelligent rerouting, using original route:', error)
+          }
+        }
 
         // Get real-time safety data from SF APIs
         const safetyMetrics = await getRouteSafetyScore(coordinates)
@@ -279,22 +352,63 @@ export async function calculateRoutes(
     const routes: Route[] = []
     
     if (convertedRoutes.length > 0) {
-      // Sort by safety score
-      convertedRoutes.sort((a, b) => b.safetyScore - a.safetyScore)
+      // Helper function to parse time and distance
+      const parseTime = (timeStr: string): number => parseInt(timeStr.replace(' min', ''))
+      const parseDistance = (distStr: string): number => parseFloat(distStr.replace(' mi', ''))
+      
+      // Sort by safety score to find safest
+      const routesBySafety = [...convertedRoutes].sort((a, b) => b.safetyScore - a.safetyScore)
+      const safestRoute = routesBySafety[0]
+      
+      // Sort by time to find fastest (shortest time = fastest)
+      const routesByTime = [...convertedRoutes].sort((a, b) => {
+        const timeA = parseTime(a.time)
+        const timeB = parseTime(b.time)
+        return timeA - timeB
+      })
+      const fastestRoute = routesByTime[0]
+      
+      // Sort by distance to find most direct
+      const routesByDistance = [...convertedRoutes].sort((a, b) => {
+        const distA = parseDistance(a.distance)
+        const distB = parseDistance(b.distance)
+        return distA - distB
+      })
+      const mostDirectRoute = routesByDistance[0]
+      
+      // Check if safest route is also most direct - if so, it should logically be faster
+      const isSafestAlsoDirect = safestRoute.id === mostDirectRoute.id
+      const isSafestAlsoFastest = safestRoute.id === fastestRoute.id
+      
+      // Find balanced route (middle ground)
+      // If we have 3+ routes, use the middle one by safety
+      // Otherwise, find one that's not safest or fastest
+      let balancedRoute = routesBySafety[Math.min(1, routesBySafety.length - 1)]
+      if (convertedRoutes.length >= 3) {
+        // Find a route that's not the safest and not the fastest
+        balancedRoute = convertedRoutes.find(r => 
+          r.id !== safestRoute.id && r.id !== fastestRoute.id
+        ) || routesBySafety[1]
+      }
       
       // Route 1: SAFEST - Prioritize safety over speed
-      const safestRoute = convertedRoutes[0] || convertedRoutes[0]
+      // If safest is also most direct/fastest, timeScore should reflect that
+      const safestTime = parseTime(safestRoute.time)
+      const safestTimeScore = isSafestAlsoDirect || isSafestAlsoFastest
+        ? Math.min(100, Math.max(80, 100 - (safestTime * 1.2))) // Higher score if also direct/fastest
+        : Math.max(60, safestRoute.timeScore - 15) // Lower score if longer route
+      
       routes.push({
         ...safestRoute,
         id: 1,
         name: "Safest Route",
         distance: safestRoute.distance,
-        time: `${Math.round(parseInt(safestRoute.time) * 1.15)} min`, // Add 15% time for safer path
+        time: safestRoute.time, // Use actual time (recalculated if waypoints added)
         safetyScore: Math.min(95, safestRoute.safetyScore + 10), // Boost safety score
         crimeScore: Math.min(95, safestRoute.crimeScore + 15),
         socialScore: Math.min(95, safestRoute.socialScore + 10),
         pedestrianScore: Math.min(95, safestRoute.pedestrianScore + 5),
-        timeScore: Math.max(60, safestRoute.timeScore - 20), // Lower time score
+        timeScore: safestTimeScore, // Reflect actual time characteristics
         color: "#10b981", // Green
         waypoints: [
           { name: "Well-lit street", type: "Clear area", safe: true },
@@ -304,7 +418,6 @@ export async function calculateRoutes(
       })
       
       // Route 2: BALANCED - Mix of safety and speed
-      const balancedRoute = convertedRoutes[Math.min(1, convertedRoutes.length - 1)]
       routes.push({
         ...balancedRoute,
         id: 2,
@@ -324,19 +437,18 @@ export async function calculateRoutes(
         ]
       })
       
-      // Route 3: FASTEST - Prioritize speed over safety
-      const fastestRoute = convertedRoutes[convertedRoutes.length - 1]
+      // Route 3: FASTEST - Use the ACTUAL fastest route (shortest time)
       routes.push({
         ...fastestRoute,
         id: 3,
         name: "Fastest Route",
-        distance: `${(parseFloat(fastestRoute.distance) * 0.9).toFixed(1)} mi`, // 10% shorter
-        time: `${Math.round(parseInt(fastestRoute.time) * 0.85)} min`, // 15% faster
-        safetyScore: Math.max(55, fastestRoute.safetyScore - 20),
-        crimeScore: Math.max(50, fastestRoute.crimeScore - 25),
-        socialScore: Math.max(45, fastestRoute.socialScore - 30),
-        pedestrianScore: Math.max(60, fastestRoute.pedestrianScore - 15),
-        timeScore: 95, // High time score
+        distance: fastestRoute.distance, // Use actual distance
+        time: fastestRoute.time, // Use actual time (already shortest)
+        safetyScore: Math.max(55, fastestRoute.safetyScore - 5), // Slight reduction but keep realistic
+        crimeScore: Math.max(50, fastestRoute.crimeScore - 5),
+        socialScore: Math.max(45, fastestRoute.socialScore - 5),
+        pedestrianScore: Math.max(60, fastestRoute.pedestrianScore - 5),
+        timeScore: Math.min(100, Math.max(85, 100 - (parseInt(fastestRoute.time.replace(' min', '')) * 1.5))), // Higher time score for faster routes
         color: "#f59e0b", // Orange
         waypoints: [
           { name: "Side street", type: "Less crowded", safe: true },

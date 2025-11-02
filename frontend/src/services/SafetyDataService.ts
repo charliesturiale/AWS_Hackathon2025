@@ -153,7 +153,7 @@ async function fetchDispatchIncidents(): Promise<Incident[]> {
 /**
  * Calculate distance between two coordinates in meters
  */
-function calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+export function calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371e3 // Earth's radius in meters
   const φ1 = lat1 * Math.PI / 180
   const φ2 = lat2 * Math.PI / 180
@@ -301,11 +301,31 @@ export async function getRouteSafetyScore(
  * Get recent high-severity incidents for display on map
  */
 export async function getRecentIncidents(): Promise<Incident[]> {
-  // Import parsed CSV data
-  const { allMockIncidents } = await import('@/data/parsedIncidents')
+  // Try to fetch real incidents first, fall back to mock data
+  try {
+    const [incidents311, incidentsDispatch] = await Promise.all([
+      fetch311Incidents(),
+      fetchDispatchIncidents()
+    ])
+    
+    // Combine and return real incidents if available
+    const allIncidents = [...incidents311, ...incidentsDispatch]
+    if (allIncidents.length > 0) {
+      return allIncidents
+    }
+  } catch (error) {
+    console.warn('Failed to fetch real incidents, using mock data:', error)
+  }
   
-  // Return parsed CSV incidents for demo
-  return allMockIncidents
+  // Fallback to mock data if real API calls fail
+  try {
+    // @ts-ignore - Mock data file may not exist, handled gracefully
+    const { allMockIncidents } = await import('@/data/parsedIncidents')
+    return allMockIncidents || []
+  } catch (error) {
+    console.warn('Mock incidents not available, returning empty array')
+    return []
+  }
 }
 
 export type { Incident, SafetyMetrics }
