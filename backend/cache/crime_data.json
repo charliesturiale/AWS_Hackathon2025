@@ -1,11 +1,45 @@
 [
   {
-    "id": "36106297",
+    "id": "36106382",
+    "cad_number": "253071978",
+    "received_datetime": "2025-11-03T13:50:02.000",
+    "entry_datetime": "2025-11-03T13:50:02.000",
+    "dispatch_datetime": "2025-11-03T13:50:02.000",
+    "enroute_datetime": "2025-11-03T13:50:02.000",
+    "onscene_datetime": "2025-11-03T13:50:02.000",
+    "call_type_original": "917",
+    "call_type_original_desc": "SUSPICIOUS PERSON",
+    "call_type_final": "917",
+    "call_type_final_desc": "SUSPICIOUS PERSON",
+    "priority_original": "C",
+    "priority_final": "C",
+    "agency": "Police",
+    "onview_flag": "Y",
+    "sensitive_call": false,
+    "intersection_name": "06TH ST \\ NATOMA ST",
+    "intersection_id": "24282000.0",
+    "intersection_point": {
+      "type": "Point",
+      "coordinates": [
+        -122.407691415,
+        37.780162026
+      ]
+    },
+    "supervisor_district": "6.0",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "call_last_updated_at": "2025-11-03T13:57:25.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
+  },
+  {
+    "id": "36106594",
     "cad_number": "253071936",
     "received_datetime": "2025-11-03T13:34:02.000",
     "entry_datetime": "2025-11-03T13:36:46.000",
     "dispatch_datetime": "2025-11-03T13:52:29.000",
     "enroute_datetime": "2025-11-03T13:52:29.000",
+    "onscene_datetime": "2025-11-03T14:08:39.000",
     "call_type_original": "650",
     "call_type_original_desc": "THREATS / HARASSMENT",
     "call_type_final": "240",
@@ -27,17 +61,18 @@
     "supervisor_district": "8.0",
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
-    "call_last_updated_at": "2025-11-03T13:52:30.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "call_last_updated_at": "2025-11-03T14:12:03.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
-    "id": "36105748",
+    "id": "36106591",
     "cad_number": "253071850",
     "received_datetime": "2025-11-03T13:11:28.000",
     "entry_datetime": "2025-11-03T13:13:55.000",
     "dispatch_datetime": "2025-11-03T13:14:35.000",
     "enroute_datetime": "2025-11-03T13:14:35.000",
+    "onscene_datetime": "2025-11-03T14:11:24.000",
     "call_type_original": "418",
     "call_type_original_desc": "FIGHT NO WEAPON",
     "call_type_final": "418",
@@ -59,9 +94,9 @@
     "supervisor_district": "3.0",
     "analysis_neighborhood": "Nob Hill",
     "police_district": "NORTHERN",
-    "call_last_updated_at": "2025-11-03T13:14:37.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "call_last_updated_at": "2025-11-03T14:11:26.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105697",
@@ -95,8 +130,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T13:12:26.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36106110",
@@ -132,8 +167,8 @@
     "analysis_neighborhood": "Pacific Heights",
     "police_district": "RICHMOND",
     "call_last_updated_at": "2025-11-03T13:39:58.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105628",
@@ -169,8 +204,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T13:09:00.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105796",
@@ -204,8 +239,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T13:17:18.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105651",
@@ -241,8 +276,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T13:10:29.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105834",
@@ -278,8 +313,8 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T13:19:09.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36106074",
@@ -314,8 +349,8 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T13:36:23.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105405",
@@ -351,8 +386,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T12:53:43.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105180",
@@ -388,8 +423,8 @@
     "analysis_neighborhood": "Inner Sunset",
     "police_district": "TARAVAL",
     "call_last_updated_at": "2025-11-03T12:39:59.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105478",
@@ -423,8 +458,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T13:00:05.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105101",
@@ -460,8 +495,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T12:33:07.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36106248",
@@ -494,8 +529,42 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T13:48:47.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
+  },
+  {
+    "id": "36106421",
+    "cad_number": "253071627",
+    "received_datetime": "2025-11-03T12:07:47.000",
+    "entry_datetime": "2025-11-03T12:09:35.000",
+    "dispatch_datetime": "2025-11-03T14:01:00.000",
+    "enroute_datetime": "2025-11-03T14:01:00.000",
+    "call_type_original": "418",
+    "call_type_original_desc": "FIGHT NO WEAPON",
+    "call_type_original_notes": "601",
+    "call_type_final": "418",
+    "call_type_final_desc": "FIGHT NO WEAPON",
+    "call_type_final_notes": "601",
+    "priority_original": "B",
+    "priority_final": "B",
+    "agency": "Police",
+    "onview_flag": "N",
+    "sensitive_call": false,
+    "intersection_name": "OFARRELL ST \\ POLK ST",
+    "intersection_id": "25179000.0",
+    "intersection_point": {
+      "type": "Point",
+      "coordinates": [
+        -122.419547854,
+        37.78496026
+      ]
+    },
+    "supervisor_district": "5.0",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "NORTHERN",
+    "call_last_updated_at": "2025-11-03T14:01:01.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105116",
@@ -529,8 +598,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T12:34:26.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104859",
@@ -563,8 +632,8 @@
     "analysis_neighborhood": "Outer Richmond",
     "police_district": "RICHMOND",
     "call_last_updated_at": "2025-11-03T12:17:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104871",
@@ -600,8 +669,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T12:18:13.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104940",
@@ -635,17 +704,18 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T12:21:39.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
-    "id": "36104999",
+    "id": "36106402",
     "cad_number": "253071503",
     "received_datetime": "2025-11-03T11:37:36.000",
     "entry_datetime": "2025-11-03T11:37:36.000",
     "dispatch_datetime": "2025-11-03T11:37:36.000",
     "enroute_datetime": "2025-11-03T11:37:36.000",
     "onscene_datetime": "2025-11-03T11:37:36.000",
+    "close_datetime": "2025-11-03T13:59:10.000",
     "call_type_original": "917",
     "call_type_original_desc": "SUSPICIOUS PERSON",
     "call_type_final": "917",
@@ -668,9 +738,9 @@
     "supervisor_district": "5.0",
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
-    "call_last_updated_at": "2025-11-03T12:26:49.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "call_last_updated_at": "2025-11-03T13:59:12.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104549",
@@ -704,8 +774,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T12:01:20.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104683",
@@ -739,11 +809,11 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T12:07:22.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
-    "id": "36104685",
+    "id": "36106477",
     "cad_number": "253071450",
     "received_datetime": "2025-11-03T11:21:16.000",
     "entry_datetime": "2025-11-03T11:23:10.000",
@@ -775,9 +845,9 @@
     "supervisor_district": "3.0",
     "analysis_neighborhood": "Tenderloin",
     "police_district": "CENTRAL",
-    "call_last_updated_at": "2025-11-03T12:07:32.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "call_last_updated_at": "2025-11-03T14:04:37.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104219",
@@ -811,8 +881,8 @@
     "analysis_neighborhood": "Nob Hill",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T11:39:32.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104448",
@@ -846,8 +916,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T11:54:31.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103863",
@@ -883,8 +953,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T11:18:02.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103845",
@@ -918,8 +988,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T11:17:11.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103780",
@@ -955,8 +1025,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T11:12:36.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104614",
@@ -990,8 +1060,8 @@
     "analysis_neighborhood": "Chinatown",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T12:04:46.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105030",
@@ -1025,8 +1095,8 @@
     "analysis_neighborhood": "Western Addition",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T12:29:41.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103750",
@@ -1060,8 +1130,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T11:10:11.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104242",
@@ -1095,8 +1165,8 @@
     "analysis_neighborhood": "Noe Valley",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T11:40:10.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104081",
@@ -1132,8 +1202,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T11:30:31.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104194",
@@ -1169,8 +1239,40 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T11:38:30.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
+  },
+  {
+    "id": "36106585",
+    "cad_number": "253071298",
+    "received_datetime": "2025-11-03T10:34:39.000",
+    "entry_datetime": "2025-11-03T10:36:58.000",
+    "dispatch_datetime": "2025-11-03T14:11:20.000",
+    "enroute_datetime": "2025-11-03T14:11:20.000",
+    "call_type_original": "917",
+    "call_type_original_desc": "SUSPICIOUS PERSON",
+    "call_type_final": "917",
+    "call_type_final_desc": "SUSPICIOUS PERSON",
+    "priority_original": "C",
+    "priority_final": "C",
+    "agency": "Police",
+    "onview_flag": "N",
+    "sensitive_call": false,
+    "intersection_name": "HYDE ST \\ OFARRELL ST",
+    "intersection_id": "25145000.0",
+    "intersection_point": {
+      "type": "Point",
+      "coordinates": [
+        -122.416259706,
+        37.785375975
+      ]
+    },
+    "supervisor_district": "5.0",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "call_last_updated_at": "2025-11-03T14:11:21.000",
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104116",
@@ -1204,8 +1306,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T11:33:54.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36106183",
@@ -1241,8 +1343,8 @@
     "analysis_neighborhood": "Russian Hill",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T13:45:20.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103385",
@@ -1278,8 +1380,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T10:35:18.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36104969",
@@ -1313,8 +1415,8 @@
     "analysis_neighborhood": "Castro/Upper Market",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T12:24:20.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103445",
@@ -1348,8 +1450,8 @@
     "analysis_neighborhood": "Nob Hill",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T10:41:03.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105601",
@@ -1383,8 +1485,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T13:08:19.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102809",
@@ -1417,8 +1519,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T09:45:51.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102646",
@@ -1452,8 +1554,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T09:30:12.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102975",
@@ -1487,8 +1589,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T09:59:44.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102667",
@@ -1522,8 +1624,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T09:31:44.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102956",
@@ -1554,8 +1656,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T09:58:04.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36105513",
@@ -1591,8 +1693,8 @@
     "analysis_neighborhood": "Nob Hill",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T13:02:23.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102425",
@@ -1628,8 +1730,8 @@
     "analysis_neighborhood": "Portola",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T09:12:14.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103145",
@@ -1665,8 +1767,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T10:16:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102373",
@@ -1700,8 +1802,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T09:07:15.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102607",
@@ -1736,8 +1838,8 @@
     "analysis_neighborhood": "Inner Sunset",
     "police_district": "TARAVAL",
     "call_last_updated_at": "2025-11-03T09:26:37.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102772",
@@ -1770,8 +1872,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T09:42:05.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102476",
@@ -1807,8 +1909,8 @@
     "analysis_neighborhood": "Castro/Upper Market",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T09:16:37.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102274",
@@ -1842,8 +1944,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T09:00:09.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102243",
@@ -1879,8 +1981,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T08:57:39.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102120",
@@ -1914,8 +2016,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T08:49:33.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102265",
@@ -1949,8 +2051,8 @@
     "analysis_neighborhood": "Sunset/Parkside",
     "police_district": "TARAVAL",
     "call_last_updated_at": "2025-11-03T08:59:30.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101871",
@@ -1984,8 +2086,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T08:28:12.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101524",
@@ -2021,8 +2123,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T08:02:08.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102507",
@@ -2058,8 +2160,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T09:19:05.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101447",
@@ -2095,8 +2197,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T07:55:34.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101344",
@@ -2132,8 +2234,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T07:49:09.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101283",
@@ -2167,8 +2269,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T07:43:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36106310",
@@ -2202,8 +2304,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T13:52:58.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101525",
@@ -2239,8 +2341,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T08:02:40.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36102459",
@@ -2274,8 +2376,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T09:15:28.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101052",
@@ -2309,8 +2411,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T07:21:48.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101970",
@@ -2346,8 +2448,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T08:38:48.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101007",
@@ -2381,8 +2483,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T07:18:22.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100655",
@@ -2416,8 +2518,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T06:46:05.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103163",
@@ -2453,8 +2555,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T10:17:58.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100376",
@@ -2488,8 +2590,8 @@
     "analysis_neighborhood": "Nob Hill",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T05:59:27.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100391",
@@ -2525,8 +2627,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T06:01:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36103076",
@@ -2560,8 +2662,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T10:10:47.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100926",
@@ -2592,8 +2694,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T07:10:51.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100272",
@@ -2627,8 +2729,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T05:29:41.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100321",
@@ -2662,8 +2764,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T05:47:49.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101527",
@@ -2699,8 +2801,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T08:02:51.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100631",
@@ -2736,8 +2838,8 @@
     "analysis_neighborhood": "Sunset/Parkside",
     "police_district": "TARAVAL",
     "call_last_updated_at": "2025-11-03T06:42:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099876",
@@ -2771,8 +2873,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T03:32:27.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099893",
@@ -2806,8 +2908,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T03:34:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36101020",
@@ -2841,8 +2943,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T07:19:50.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099862",
@@ -2876,8 +2978,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T03:27:57.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100253",
@@ -2911,8 +3013,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T05:18:19.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099314",
@@ -2946,8 +3048,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T02:10:32.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099183",
@@ -2981,8 +3083,8 @@
     "analysis_neighborhood": "Sunset/Parkside",
     "police_district": "TARAVAL",
     "call_last_updated_at": "2025-11-03T01:50:32.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099662",
@@ -3016,8 +3118,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-03T03:07:34.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098952",
@@ -3051,8 +3153,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T01:13:27.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098829",
@@ -3083,8 +3185,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T00:51:35.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099233",
@@ -3120,8 +3222,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T01:58:19.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099744",
@@ -3155,8 +3257,8 @@
     "analysis_neighborhood": "Bernal Heights",
     "police_district": "INGLESIDE",
     "call_last_updated_at": "2025-11-03T03:15:40.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098872",
@@ -3190,8 +3292,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T00:58:24.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36100111",
@@ -3227,8 +3329,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T05:03:49.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098576",
@@ -3262,8 +3364,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-03T00:11:28.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098666",
@@ -3299,8 +3401,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T00:24:00.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098643",
@@ -3336,8 +3438,8 @@
     "analysis_neighborhood": "Outer Richmond",
     "police_district": "RICHMOND",
     "call_last_updated_at": "2025-11-03T00:22:11.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098781",
@@ -3371,8 +3473,8 @@
     "analysis_neighborhood": "Chinatown",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T00:42:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098983",
@@ -3408,8 +3510,8 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T01:19:16.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098408",
@@ -3445,8 +3547,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-02T23:40:39.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099225",
@@ -3480,8 +3582,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T01:57:25.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098221",
@@ -3515,8 +3617,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-02T23:16:51.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098461",
@@ -3550,8 +3652,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-02T23:46:49.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099650",
@@ -3585,8 +3687,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T03:06:22.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098164",
@@ -3620,8 +3722,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-02T23:09:46.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098925",
@@ -3655,8 +3757,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T01:07:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097930",
@@ -3690,8 +3792,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-02T22:48:25.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097824",
@@ -3725,8 +3827,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-02T22:36:54.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097973",
@@ -3760,8 +3862,8 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-02T22:53:09.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098011",
@@ -3795,8 +3897,8 @@
     "analysis_neighborhood": "Chinatown",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-02T22:55:32.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099288",
@@ -3830,8 +3932,8 @@
     "analysis_neighborhood": "Western Addition",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T02:07:01.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097788",
@@ -3867,8 +3969,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-02T22:29:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097820",
@@ -3904,8 +4006,8 @@
     "analysis_neighborhood": "Financial District/South Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-02T22:35:48.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098312",
@@ -3941,8 +4043,8 @@
     "analysis_neighborhood": "Marina",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-02T23:30:03.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097711",
@@ -3976,8 +4078,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-02T22:22:37.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098616",
@@ -4013,8 +4115,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-03T00:19:04.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098979",
@@ -4048,8 +4150,8 @@
     "analysis_neighborhood": "Bayview Hunters Point",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-03T01:18:54.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097545",
@@ -4083,8 +4185,8 @@
     "analysis_neighborhood": "Tenderloin",
     "police_district": "TENDERLOIN",
     "call_last_updated_at": "2025-11-02T22:05:25.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36098896",
@@ -4118,8 +4220,8 @@
     "analysis_neighborhood": "Nob Hill",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-03T01:02:16.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097825",
@@ -4153,8 +4255,8 @@
     "analysis_neighborhood": "Mission",
     "police_district": "MISSION",
     "call_last_updated_at": "2025-11-02T22:37:00.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097707",
@@ -4185,8 +4287,8 @@
     "analysis_neighborhood": "Hayes Valley",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-02T22:21:39.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097463",
@@ -4220,8 +4322,8 @@
     "analysis_neighborhood": "Potrero Hill",
     "police_district": "BAYVIEW",
     "call_last_updated_at": "2025-11-02T21:57:23.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36099754",
@@ -4255,8 +4357,8 @@
     "analysis_neighborhood": "South of Market",
     "police_district": "SOUTHERN",
     "call_last_updated_at": "2025-11-03T03:16:09.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097676",
@@ -4292,8 +4394,8 @@
     "analysis_neighborhood": "Russian Hill",
     "police_district": "NORTHERN",
     "call_last_updated_at": "2025-11-02T22:19:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097301",
@@ -4329,8 +4431,8 @@
     "analysis_neighborhood": "Outer Richmond",
     "police_district": "RICHMOND",
     "call_last_updated_at": "2025-11-02T21:41:59.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   },
   {
     "id": "36097917",
@@ -4366,256 +4468,7 @@
     "analysis_neighborhood": "North Beach",
     "police_district": "CENTRAL",
     "call_last_updated_at": "2025-11-02T22:47:05.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36097279",
-    "cad_number": "253063226",
-    "received_datetime": "2025-11-02T21:11:34.000",
-    "entry_datetime": "2025-11-02T21:17:24.000",
-    "dispatch_datetime": "2025-11-02T21:17:50.000",
-    "enroute_datetime": "2025-11-02T21:17:50.000",
-    "onscene_datetime": "2025-11-02T21:25:34.000",
-    "close_datetime": "2025-11-02T21:39:36.000",
-    "call_type_original": "418",
-    "call_type_original_desc": "FIGHT NO WEAPON",
-    "call_type_final": "418",
-    "call_type_final_desc": "FIGHT NO WEAPON",
-    "priority_original": "B",
-    "priority_final": "B",
-    "agency": "Police",
-    "disposition": "HAN",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "16TH AVE \\ ANZA ST",
-    "intersection_id": "27479000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.474956162,
-        37.778602201
-      ]
-    },
-    "supervisor_district": "1.0",
-    "analysis_neighborhood": "Outer Richmond",
-    "police_district": "RICHMOND",
-    "call_last_updated_at": "2025-11-02T21:39:38.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36097342",
-    "cad_number": "253063219",
-    "received_datetime": "2025-11-02T21:09:30.000",
-    "entry_datetime": "2025-11-02T21:15:00.000",
-    "dispatch_datetime": "2025-11-02T21:39:09.000",
-    "enroute_datetime": "2025-11-02T21:39:09.000",
-    "onscene_datetime": "2025-11-02T21:45:15.000",
-    "close_datetime": "2025-11-02T21:47:08.000",
-    "call_type_original": "650",
-    "call_type_original_desc": "THREATS / HARASSMENT",
-    "call_type_final": "650",
-    "call_type_final_desc": "THREATS / HARASSMENT",
-    "priority_original": "B",
-    "priority_final": "B",
-    "agency": "Police",
-    "disposition": "UTL",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "MARIPOSA ST \\ MISSISSIPPI ST",
-    "intersection_id": "23674000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.394708642,
-        37.763964017
-      ]
-    },
-    "supervisor_district": "10.0",
-    "analysis_neighborhood": "Potrero Hill",
-    "police_district": "BAYVIEW",
-    "call_last_updated_at": "2025-11-02T21:47:10.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36100124",
-    "cad_number": "253063216",
-    "received_datetime": "2025-11-02T21:11:48.000",
-    "entry_datetime": "2025-11-02T21:13:29.000",
-    "dispatch_datetime": "2025-11-02T21:13:59.000",
-    "enroute_datetime": "2025-11-02T21:13:59.000",
-    "onscene_datetime": "2025-11-02T21:14:36.000",
-    "close_datetime": "2025-11-03T04:26:37.000",
-    "call_type_original": "418",
-    "call_type_original_desc": "FIGHT NO WEAPON",
-    "call_type_final": "418",
-    "call_type_final_desc": "FIGHT NO WEAPON",
-    "priority_original": "A",
-    "priority_final": "A",
-    "agency": "Police",
-    "disposition": "ARR",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "CARD ALY \\ STOCKTON ST",
-    "intersection_id": "25351000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.40891234,
-        37.799035856
-      ]
-    },
-    "supervisor_district": "3.0",
-    "analysis_neighborhood": "Chinatown",
-    "police_district": "CENTRAL",
-    "call_last_updated_at": "2025-11-03T05:03:51.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36099359",
-    "cad_number": "253063205",
-    "received_datetime": "2025-11-02T21:07:57.000",
-    "entry_datetime": "2025-11-02T21:09:10.000",
-    "dispatch_datetime": "2025-11-03T01:02:17.000",
-    "enroute_datetime": "2025-11-03T01:02:17.000",
-    "onscene_datetime": "2025-11-03T02:16:34.000",
-    "close_datetime": "2025-11-03T02:19:33.000",
-    "call_type_original": "418",
-    "call_type_original_desc": "FIGHT NO WEAPON",
-    "call_type_final": "418",
-    "call_type_final_desc": "FIGHT NO WEAPON",
-    "priority_original": "B",
-    "priority_final": "B",
-    "agency": "Police",
-    "disposition": "UTL",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "COLUMBUS AVE \\ JONES ST",
-    "intersection_id": "25534000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.416818344,
-        37.804887161
-      ]
-    },
-    "supervisor_district": "3.0",
-    "analysis_neighborhood": "Russian Hill",
-    "police_district": "CENTRAL",
-    "call_last_updated_at": "2025-11-03T02:19:35.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36097364",
-    "cad_number": "253063201",
-    "received_datetime": "2025-11-02T21:07:23.000",
-    "entry_datetime": "2025-11-02T21:08:11.000",
-    "dispatch_datetime": "2025-11-02T21:08:30.000",
-    "enroute_datetime": "2025-11-02T21:08:30.000",
-    "onscene_datetime": "2025-11-02T21:11:09.000",
-    "close_datetime": "2025-11-02T21:49:21.000",
-    "call_type_original": "418",
-    "call_type_original_desc": "FIGHT NO WEAPON",
-    "call_type_original_notes": "RO VIOILATION",
-    "call_type_final": "418",
-    "call_type_final_desc": "FIGHT NO WEAPON",
-    "call_type_final_notes": "RO VIOILATION",
-    "priority_original": "A",
-    "priority_final": "A",
-    "agency": "Police",
-    "disposition": "REP",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "BAY VIEW ST \\ LATONA ST",
-    "intersection_id": "20514000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.392357919,
-        37.732487907
-      ]
-    },
-    "supervisor_district": "10.0",
-    "analysis_neighborhood": "Bayview Hunters Point",
-    "police_district": "BAYVIEW",
-    "call_last_updated_at": "2025-11-02T21:49:23.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36097033",
-    "cad_number": "253063190",
-    "received_datetime": "2025-11-02T20:56:32.000",
-    "entry_datetime": "2025-11-02T21:03:02.000",
-    "dispatch_datetime": "2025-11-02T21:10:28.000",
-    "enroute_datetime": "2025-11-02T21:10:28.000",
-    "onscene_datetime": "2025-11-02T21:16:21.000",
-    "close_datetime": "2025-11-02T21:17:15.000",
-    "call_type_original": "917",
-    "call_type_original_desc": "SUSPICIOUS PERSON",
-    "call_type_final": "917",
-    "call_type_final_desc": "SUSPICIOUS PERSON",
-    "priority_original": "B",
-    "priority_final": "B",
-    "agency": "Police",
-    "disposition": "GOA",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "OLD CHINATOWN LN \\ SPOFFORD ST \\ WASHINGTON ST",
-    "intersection_id": "25022000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.407485197,
-        37.795015975
-      ]
-    },
-    "supervisor_district": "3.0",
-    "analysis_neighborhood": "Chinatown",
-    "police_district": "CENTRAL",
-    "call_last_updated_at": "2025-11-02T21:17:16.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
-  },
-  {
-    "id": "36097746",
-    "cad_number": "253063186",
-    "received_datetime": "2025-11-02T20:59:12.000",
-    "entry_datetime": "2025-11-02T21:02:14.000",
-    "dispatch_datetime": "2025-11-02T22:21:28.000",
-    "enroute_datetime": "2025-11-02T22:21:28.000",
-    "onscene_datetime": "2025-11-02T22:24:21.000",
-    "close_datetime": "2025-11-02T22:24:50.000",
-    "call_type_original": "917",
-    "call_type_original_desc": "SUSPICIOUS PERSON",
-    "call_type_original_notes": "AGGRESSIVE",
-    "call_type_final": "917",
-    "call_type_final_desc": "SUSPICIOUS PERSON",
-    "call_type_final_notes": "AGGRESSIVE",
-    "priority_original": "B",
-    "priority_final": "B",
-    "agency": "Police",
-    "disposition": "GOA",
-    "onview_flag": "N",
-    "sensitive_call": false,
-    "intersection_name": "10TH ST \\ FOLSOM ST",
-    "intersection_id": "24233000.0",
-    "intersection_point": {
-      "type": "Point",
-      "coordinates": [
-        -122.412824226,
-        37.77281216
-      ]
-    },
-    "supervisor_district": "6.0",
-    "analysis_neighborhood": "South of Market",
-    "police_district": "SOUTHERN",
-    "call_last_updated_at": "2025-11-02T22:24:52.000",
-    "data_as_of": "2025-11-03T14:04:09.000",
-    "data_loaded_at": "2025-11-03T14:05:43.687"
+    "data_as_of": "2025-11-03T14:24:09.000",
+    "data_loaded_at": "2025-11-03T14:25:34.808"
   }
 ]
