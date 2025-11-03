@@ -4,116 +4,194 @@
 
 SafePath analyzes walking routes against real-time San Francisco crime statistics and 311 incident reports to recommend the safest paths to your destination.
 
-## Features
+![SafePath Demo](https://img.shields.io/badge/Status-Active-success) ![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue) ![Node 16+](https://img.shields.io/badge/Node-16%2B-green)
 
-- **Real-Time Data Integration**: Fetches crime and 311 incident data from DataSF APIs every 10 minutes
-- **Intelligent Route Generation**: Creates 3 optimized route variations and recommends the safest paths
-- **Offline Route Optimization**: In-memory waypoint injection for fast safety improvements without additional API calls
-- **Advanced Risk Scoring**: Time-decay algorithm that weighs recent incidents more heavily
-- **Distance-Based Safety Detection**: Identifies route segments within 200m of incidents for targeted optimization
-- **Encampment Merging**: Automatically merges nearby encampments for accurate risk assessment
-- **Interactive Map**: Visualize your routes with safety indicators and detailed metrics
-- **Responsive Design**: Works seamlessly on desktop and mobile
+---
 
-## Quick Start (Windows)
+## 🚀 Quick Start (3 Steps)
 
-### 3-Step Installation
+### 1. Clone Repository
+```bash
+git clone https://github.com/charliesturiale/AWS_Hackathon2025.git
+cd AWS_Hackathon2025
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/safepath.git
-   cd safepath
-   ```
+### 2. Run Setup (First Time Only)
+```bash
+SETUP.bat
+```
+This will:
+- Check for Python 3.9+ and Node.js 16+
+- Install all dependencies automatically
+- Guide you through API key configuration
 
-2. **Run automated setup** (installs all dependencies and guides API key setup)
-   ```bash
-   SETUP.bat
-   ```
+### 3. Launch Application
+```bash
+START_HERE.bat
+```
+- Opens backend (http://localhost:8000)
+- Opens frontend (http://localhost:3000)
+- Browser opens automatically!
 
-3. **Launch the application**
-   ```bash
-   START_HERE.bat
-   ```
+**That's it!** 🎉
 
-That's it! Your browser will automatically open to http://localhost:3000
+---
 
-### What You Need Before Running
+## 📋 Prerequisites
 
-**Software** (SETUP.bat checks for these):
-- Python 3.9 or later - [Download](https://www.python.org/downloads/)
-- Node.js 16 or later - [Download](https://nodejs.org/)
+### Software (Auto-Checked by SETUP.bat)
+- **Python 3.9+** - [Download here](https://www.python.org/downloads/)
+  - ⚠️ During installation, CHECK "Add Python to PATH"
+- **Node.js 16+** - [Download here](https://nodejs.org/)
+  - Use LTS version (default settings are fine)
 
-**API Keys** (SETUP.bat helps you configure these):
-- **DataSF API Token** (FREE) - [Get it here](https://data.sfgov.org/)
-  - Create free account
-  - Copy your App Token from profile
+### API Keys (FREE)
 
-- **GraphHopper API Key** (FREE tier available) - [Get it here](https://www.graphhopper.com/)
-  - Create free account
-  - Copy API key from dashboard
-  - Note: Free tier has ~5 requests/minute limit
+#### DataSF API Token (Required)
+1. Go to [data.sfgov.org](https://data.sfgov.org/)
+2. Click **"Sign Up"** (free account)
+3. Go to Profile → Copy **"App Token"**
 
-### Test It Out
+#### GraphHopper API Key (Required)
+1. Go to [graphhopper.com](https://www.graphhopper.com/)
+2. Click **"Get started for free"**
+3. Copy API key from dashboard
+4. **Note:** Free tier = ~5 requests/minute (perfect for testing)
 
-Try these San Francisco addresses:
-- "Union Square, SF" to "Ferry Building, SF" (short route)
-- "Golden Gate Park" to "Fisherman's Wharf" (long route)
-- "Mission District" to "Castro District" (neighborhood route)
+---
 
-## Manual Installation (Mac/Linux)
+## 🎯 Features
 
-If you're not on Windows or prefer manual setup:
+- **Real-Time Data**: Crime & 311 incidents updated every 10 minutes
+- **Smart Routing**: Generates 3 optimized route variations
+- **Offline Optimization**: Fast safety improvements (no extra API calls)
+- **Time-Decay Algorithm**: Recent incidents weighted more heavily
+- **Distance-Based Detection**: 200m safety buffer for incidents
+- **Interactive Map**: Visual routes with safety scores
+- **Mobile Responsive**: Works on all devices
 
-1. **Clone and navigate**
-   ```bash
-   git clone https://github.com/yourusername/safepath.git
-   cd safepath
-   ```
+---
 
-2. **Create .env file** in project root:
-   ```env
-   DATASF_API_TOKEN=your_token_here
-   DATASF_CRIME_API=https://data.sfgov.org/resource/gnap-fj3t.json
-   DATASF_311_API=https://data.sfgov.org/resource/vw6y-z8j6.json
-   GRAPHHOPPER_API_KEY=your_key_here
-   BACKEND_PORT=8000
-   FRONTEND_URL=http://localhost:3000
-   DATA_REFRESH_INTERVAL=10
-   ```
+## 🧪 Try It Out
 
-3. **Setup backend**
-   ```bash
-   cd backend
-   python3 -m venv venv
-   source venv/bin/activate  # Mac/Linux
-   pip install -r requirements.txt
-   ```
+Test these San Francisco routes:
+- **Short**: "Union Square, SF" → "Ferry Building, SF"
+- **Long**: "Golden Gate Park" → "Fisherman's Wharf"
+- **Neighborhood**: "Mission District" → "Castro District"
 
-4. **Setup frontend**
-   ```bash
-   cd frontend
-   npm install
-   ```
+---
 
-5. **Run backend** (in one terminal)
-   ```bash
-   cd backend/app
-   source ../venv/bin/activate
-   python -m uvicorn main:app --reload --port 8000
-   ```
+## 📖 Manual Setup (Mac/Linux or Advanced Users)
 
-6. **Run frontend** (in another terminal)
-   ```bash
-   cd frontend
-   npm start
-   ```
+<details>
+<summary>Click to expand manual installation steps</summary>
 
-7. **Open browser** to http://localhost:3000
+### 1. Clone Repository
+```bash
+git clone https://github.com/charliesturiale/AWS_Hackathon2025.git
+cd AWS_Hackathon2025
+```
 
-## API Endpoints
+### 2. Create `.env` File
+Create a file named `.env` in the project root with:
+```env
+# DataSF API Configuration
+DATASF_API_TOKEN=your_datasf_token_here
+DATASF_CRIME_API=https://data.sfgov.org/resource/gnap-fj3t.json
+DATASF_311_API=https://data.sfgov.org/resource/vw6y-z8j6.json
 
-### `GET /api/health`
-Health check with data statistics
+# GraphHopper API Configuration
+GRAPHHOPPER_API_KEY=your_graphhopper_key_here
+
+# Server Configuration
+BACKEND_PORT=8000
+FRONTEND_URL=http://localhost:3000
+DATA_REFRESH_INTERVAL=10
+```
+
+### 3. Setup Backend
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate  # Mac/Linux
+# or
+venv\Scripts\activate     # Windows
+pip install -r requirements.txt
+```
+
+### 4. Setup Frontend
+```bash
+cd frontend
+npm install
+```
+
+### 5. Run Backend (Terminal 1)
+```bash
+cd backend/app
+source ../venv/bin/activate  # Mac/Linux
+python -m uvicorn main:app --reload --port 8000
+```
+
+### 6. Run Frontend (Terminal 2)
+```bash
+cd frontend
+npm start
+```
+
+### 7. Open Browser
+Navigate to http://localhost:3000
+
+</details>
+
+---
+
+## 🔧 Troubleshooting
+
+### ❌ "Python not found"
+**Solution:** Install Python 3.9+ and make sure to **check "Add to PATH"** during installation.
+
+### ❌ "Node not found"
+**Solution:** Install Node.js 16+ from [nodejs.org](https://nodejs.org/)
+
+### ❌ "Port 8000 already in use"
+**Solution (Windows):**
+```bash
+netstat -ano | findstr :8000
+taskkill /PID <process_id> /F
+```
+
+### ❌ "Port 3000 already in use"
+**Solution:** Stop other React apps or close terminals running on port 3000.
+
+### ❌ GraphHopper "429 Too Many Requests"
+**Solution:**
+- Wait 60 seconds (rate limit resets)
+- Free tier = ~5 requests/minute
+- Consider upgrading for production
+
+### ❌ Frontend can't connect to backend
+**Checklist:**
+1. Is backend running? Test: `curl http://localhost:8000/api/health`
+2. Check CORS settings in `backend/app/main.py`
+3. Verify `.env` file exists in project root
+
+### ❌ Module import errors
+**Solution:**
+```bash
+cd backend
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+---
+
+## 📡 API Endpoints
+
+### Health Check
+```http
+GET /api/health
+```
+**Response:**
 ```json
 {
   "status": "healthy",
@@ -125,11 +203,11 @@ Health check with data statistics
 }
 ```
 
-### `POST /api/routes`
-Calculate safe routes between two locations
+### Calculate Routes
+```http
+POST /api/routes
+Content-Type: application/json
 
-**Request:**
-```json
 {
   "origin": "Union Square, San Francisco",
   "destination": "Pier 39, San Francisco"
@@ -143,224 +221,279 @@ Calculate safe routes between two locations
     {
       "id": 1,
       "name": "Safest Route",
-      "description": "Safest path with minimal risk exposure (score: 1.5). Optimal positioning away from all incident types.",
+      "description": "Safest path with minimal risk exposure",
       "distance": "2.5 mi",
       "time": "52 min",
       "safetyScore": 85,
       "total_risk": 1.51,
-      "crime_risk": 1.46,
-      "incident_risk": 0.05,
       "coordinates": [{"lat": 37.7830, "lng": -122.4060}, ...],
       "color": "#10b981"
-    },
-    {
-      "id": 2,
-      "name": "Balanced Route",
-      "description": "Faster option (10 min saved) with acceptable risk increase. Passes near 2 crime area(s), risk score: 6.8",
-      "distance": "2.1 mi",
-      "time": "42 min",
-      "safetyScore": 50,
-      "total_risk": 6.82,
-      "crime_risk": 6.58,
-      "incident_risk": 0.24,
-      "coordinates": [{"lat": 37.7830, "lng": -122.4060}, ...],
-      "color": "#3b82f6"
     }
   ],
   "originCoords": {"lat": 37.7829, "lng": -122.4060},
-  "destCoords": {"lat": 37.8098, "lng": -122.4103},
-  "data_timestamp": "2025-10-31T11:43:59.864989"
+  "destCoords": {"lat": 37.8098, "lng": -122.4103}
 }
 ```
 
-### `GET /api/data/stats`
-Current incident data statistics
-
-## Route Optimization Algorithm
-
-SafePath uses an offline optimization strategy to improve route safety:
-
-### Optimization Workflow
-
-1. **Initial Route Generation**: Request 3 route variations from GraphHopper API
-2. **Segment Analysis**: Recursively subdivide each route to identify problematic segments passing within 200m of incidents
-3. **Waypoint Calculation**: For each problematic segment, calculate a safe waypoint using perpendicular displacement (250m from threat)
-4. **Offline Injection**: Inject waypoint into route using existing route points as anchors (no additional API calls)
-5. **Validation**: Verify improved safety using geodesic distance calculations
-6. **Route Reconstruction**: Rebuild complete route with optimized segments
-
-### Binary Tree Recursion
-
-- **Max Depth**: 5 levels of subdivision (allows up to 32 sub-segments)
-- **Min Segment Length**: 50 meters
-- **Safety Buffer**: 200 meters from all incidents
-- **Termination**: When segment is safe OR cannot be subdivided further
-
-### Waypoint Injection Strategy
-
-- **Anchor Search**: Find existing route points within 300m of calculated safe waypoint
-- **Route-Aware Insertion**: Use closest anchor point to maintain road validity
-- **Fallback Method**: Linear interpolation with 20 interpolated points if no anchor found
-- **Quality Validation**: Check segment lengths (<500m) and detour ratio (<1.5x direct distance)
-
-## Risk Scoring Algorithm
-
-SafePath uses a sophisticated risk scoring formula that considers both distance from incidents and time since occurrence:
-
-### Formula
-
-**For high-risk incidents (weight=3, 72-hour decay):**
-```
-risk = (max(0, 3-3t/72))^2 × exp(-d^2/0.02)
+### Get Statistics
+```http
+GET /api/data/stats
 ```
 
-**For medium/low-risk incidents (weight=1-2, 24-hour decay):**
+---
+
+## 🧮 How It Works
+
+### Risk Scoring Algorithm
+
+**High-risk incidents (72-hour decay):**
 ```
-risk = (max(0, w-wt/24))^2 × exp(-d^2/0.02)
+risk = (max(0, 3-3t/72))² × exp(-d²/0.02)
 ```
 
-**For encampments:**
+**Medium/low-risk incidents (24-hour decay):**
 ```
-risk = constant (no time decay until closed)
+risk = (max(0, w-wt/24))² × exp(-d²/0.02)
 ```
 
 Where:
 - `t` = hours since incident
-- `d` = distance from route in km
+- `d` = distance from route (km)
 - `w` = risk weight (1=low, 2=medium, 3=high)
 
 ### Risk Categories
 
-**High Risk (weight=3):**
-- Robbery, Strongarm Robbery
-- Assault, Battery
-- Explosives/Explosions
+| Risk Level | Weight | Decay | Examples |
+|------------|--------|-------|----------|
+| **High** | 3 | 72hr | Robbery, Assault, Battery, Explosives |
+| **Medium** | 2 | 24hr | Purse Snatch, Fights, Burglary |
+| **Low** | 1 | 24hr | Suspicious Person, Threats, Harassment |
+| **Encampments** | 2 | None | Open encampments (until closed) |
 
-**Medium Risk (weight=2):**
-- Purse Snatch, Indecent Exposure
-- Fight with/without Weapons
-- Burglary, Person Breaking In
+### Route Optimization Process
 
-**Low Risk (weight=1):**
-- Suspicious Person
-- Threats/Harassment
-- Aggressive/Threatening Behavior
+1. **Generate Routes**: Request 3 variations from GraphHopper
+2. **Analyze Segments**: Find areas within 200m of incidents
+3. **Calculate Waypoints**: Create safe alternatives (250m from threats)
+4. **Offline Injection**: Add waypoints using existing route anchors
+5. **Validate**: Verify improved safety with geodesic distance
+6. **Rank**: Sort by safety score and return top 3
 
-## Testing
+---
 
-Run the comprehensive test suite:
-
-```bash
-cd backend
-python production_test_suite.py
-```
-
-Tests include:
-- **API Verification**: Health check, input validation
-- **Data Accuracy**: Route calculation, risk scoring, safety scores
-- **Performance**: Response time baselines
-- **Load Testing**: Concurrent request handling
-
-## Important Notes
-
-### API Rate Limits
-
-The free GraphHopper API has rate limits. If you encounter `429 Too Many Requests` errors:
-
-1. **Wait**: The API resets after a short period (typically 1 minute)
-2. **Reduce Testing Load**: Avoid running high-concurrency load tests
-3. **Upgrade**: Consider a paid GraphHopper plan for production use
-
-The backend implements:
-- Automatic geocoding rate limiting (2-second delays)
-- Caching of geocoded addresses
-- Retry logic with exponential backoff
-
-### Data Freshness
-
-- Crime and 311 data updates every 10 minutes via background scheduler
-- Data cached locally in `backend/cache/` for fallback
-- Last fetch timestamp included in all API responses
-
-## Deployment
-
-For production deployment:
-
-1. **Use environment variables** for all API keys (never commit `.env`)
-2. **Set up HTTPS** with a reverse proxy (nginx, Caddy)
-3. **Use production ASGI server** (gunicorn with uvicorn workers)
-4. **Configure CORS** to only allow your frontend domain
-5. **Monitor API usage** to avoid rate limits
-6. **Set up error tracking** (Sentry, etc.)
-
-Example production backend start:
-```bash
-gunicorn app.main:app --workers 4 --bind 0.0.0.0:8000 --worker-class uvicorn.workers.UvicornWorker
-```
-
-## Tech Stack
-
-**Backend:**
-- FastAPI (Python 3.9+)
-- Uvicorn ASGI server
-- APScheduler for background tasks
-- Requests for API calls
-- geopy, numpy, pandas for calculations
-
-**Frontend:**
-- React 18 + TypeScript
-- Tailwind CSS + shadcn/ui
-- React Leaflet for maps
-- Axios for API calls
-
-**External APIs:**
-- GraphHopper (routing and geocoding)
-- DataSF Crime Data API
-- DataSF 311 Incidents API
-
-## Project Structure
+## 🏗️ Project Structure
 
 ```
-safepath/
+AWS_Hackathon2025/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI application
-│   │   ├── data_fetcher.py      # DataSF API integration
+│   │   ├── data_fetcher.py      # DataSF integration
 │   │   └── risk_scorer.py       # Risk calculation engine
 │   ├── cache/                   # Cached incident data
-│   ├── production_test_suite.py # Comprehensive tests
-│   └── requirements.txt         # Python dependencies
+│   ├── requirements.txt         # Python dependencies
+│   └── production_test_suite.py # Test suite
 ├── frontend/
 │   ├── src/
 │   │   ├── components/          # React components
 │   │   └── services/            # API clients
 │   ├── package.json             # Node dependencies
 │   └── public/                  # Static assets
-├── .env                         # Environment variables (not committed)
+├── .env                         # API keys (DO NOT COMMIT)
+├── .gitignore                   # Git ignore rules
+├── SETUP.bat                    # First-time setup
+├── START_HERE.bat               # Launch application
 └── README.md                    # This file
 ```
 
-## Contributing
+---
+
+## 🧪 Testing
+
+### Quick Backend Test
+```bash
+curl http://localhost:8000/api/health
+```
+
+### Comprehensive Test Suite
+```bash
+cd backend
+python production_test_suite.py
+```
+
+**Tests include:**
+- API verification
+- Route calculation accuracy
+- Risk scoring validation
+- Performance baselines
+- Load testing (respects API limits)
+
+---
+
+## 🌐 Production Deployment
+
+<details>
+<summary>Click to expand production deployment guide</summary>
+
+### Environment Variables
+
+**Backend `.env` (Production):**
+```env
+DATASF_API_TOKEN=your_production_token
+GRAPHHOPPER_API_KEY=your_production_key
+DATASF_CRIME_API=https://data.sfgov.org/resource/gnap-fj3t.json
+DATASF_311_API=https://data.sfgov.org/resource/vw6y-z8j6.json
+BACKEND_PORT=8000
+FRONTEND_URL=https://your-domain.com
+DATA_REFRESH_INTERVAL=10
+```
+
+### CORS Configuration
+
+Update `backend/app/main.py`:
+```python
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://your-domain.com"],  # Your frontend domain
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
+```
+
+### Production Server
+
+**Using Gunicorn (recommended):**
+```bash
+cd backend
+gunicorn app.main:app \
+  --workers 4 \
+  --bind 0.0.0.0:8000 \
+  --worker-class uvicorn.workers.UvicornWorker
+```
+
+### Frontend Build
+
+```bash
+cd frontend
+npm run build
+# Deploy build/ folder to static hosting (Vercel, Netlify, S3, etc.)
+```
+
+### Hosting Options
+
+| Service | Backend | Frontend | Difficulty |
+|---------|---------|----------|------------|
+| **Heroku** | ✅ Free tier | ❌ | Easy |
+| **Railway** | ✅ Free tier | ✅ Free tier | Easy |
+| **Vercel** | ❌ | ✅ Free tier | Easy |
+| **AWS** | EC2 | S3+CloudFront | Medium |
+| **DigitalOcean** | Droplet | Spaces | Medium |
+
+</details>
+
+---
+
+## 💻 Tech Stack
+
+**Backend:**
+- FastAPI (Python 3.9+)
+- Uvicorn ASGI server
+- APScheduler (background tasks)
+- geopy, numpy, pandas
+
+**Frontend:**
+- React 18 + TypeScript
+- Tailwind CSS + shadcn/ui
+- React Leaflet (maps)
+- Axios
+
+**APIs:**
+- GraphHopper (routing/geocoding)
+- DataSF Crime Data
+- DataSF 311 Incidents
+
+---
+
+## 📝 Development
+
+### Backend Development
+```bash
+cd backend/app
+source ../venv/bin/activate  # Mac/Linux
+uvicorn main:app --reload --port 8000
+```
+
+### Frontend Development
+```bash
+cd frontend
+npm start
+```
+
+### Code Style
+- Backend: PEP 8 (Python)
+- Frontend: ESLint + Prettier (TypeScript/React)
+
+---
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
-## License
+---
 
-This project is licensed under the MIT License.
+## 📄 License
 
-## Acknowledgments
+MIT License - See LICENSE file for details
+
+---
+
+## 🙏 Acknowledgments
 
 - Crime data from [DataSF](https://datasf.org/)
 - Routing powered by [GraphHopper](https://www.graphhopper.com/)
 - Map tiles from [OpenStreetMap](https://www.openstreetmap.org/)
 
-## Support
+---
 
-For issues and questions:
-- Open an issue on GitHub
-- Check existing issues for solutions
-- Review the testing documentation
+## 📞 Support
+
+**Having issues?**
+1. Check [Troubleshooting](#-troubleshooting) section above
+2. Search [existing GitHub issues](https://github.com/charliesturiale/AWS_Hackathon2025/issues)
+3. Open a new issue with:
+   - Error message
+   - Steps to reproduce
+   - OS and Python/Node versions
+
+---
+
+## 🎉 Quick Command Reference
+
+```bash
+# First time setup
+SETUP.bat
+
+# Launch application
+START_HERE.bat
+
+# Individual backend
+start-backend.bat
+
+# Individual frontend
+start-frontend.bat
+
+# Test backend
+curl http://localhost:8000/api/health
+
+# Run tests
+cd backend && python production_test_suite.py
+```
+
+---
+
+**Made with ❤️ for safer walking in San Francisco**

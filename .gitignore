@@ -1,32 +1,100 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
 
-# dependencies
-/node_modules
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/env/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# debug
+# Node.js
+node_modules/
+frontend/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files
-.env*
+# React / Frontend build
+/build
+/dist
+frontend/build/
+frontend/dist/
+.next/
+out/
 
-# vercel
-.vercel
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
-# typescript
+# Logs
+*.log
+backend/backend.log
+frontend/frontend.log
+logs/
+*.log.*
+
+# Testing
 *.tsbuildinfo
-next-env.d.ts
-
-# test output files
+.coverage
+htmlcov/
 *test*.json
 *output*.json
 test_results_*.json
+
+# Cache
+.cache/
+frontend/node_modules/.cache/
+*.cache
+
+# Windows specific
+Thumbs.db
+desktop.ini
+nul
+con
+prn
+aux
+com[0-9]
+lpt[0-9]
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Deployment
+.vercel
+.netlify
