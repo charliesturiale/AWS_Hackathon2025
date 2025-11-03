@@ -1,1 +1,1765 @@
-[]
+[
+  {
+    "service_request_id": "101002908188",
+    "requested_datetime": "2025-11-02T21:58:18.000",
+    "updated_datetime": "2025-11-02T21:58:27.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "270 TURK ST, SAN FRANCISCO, CA 94102",
+    "street": "TURK ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78299063856343",
+    "long": "-122.413534953127",
+    "point": {
+      "latitude": "37.78299063856343",
+      "longitude": "-122.413534953127",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.413534953,
+        37.782990639
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762149497/san-francisco/production/uze9bzc1mfefy5tn1ate.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002908177",
+    "requested_datetime": "2025-11-02T21:50:11.000",
+    "updated_datetime": "2025-11-02T21:50:20.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "854 CAPP ST, SAN FRANCISCO, CA 94110",
+    "street": "CAPP ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.75298654193554",
+    "long": "-122.41756171042866",
+    "point": {
+      "latitude": "37.75298654193554",
+      "longitude": "-122.41756171042866",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41756171,
+        37.752986542
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002908144",
+    "requested_datetime": "2025-11-02T21:28:56.000",
+    "updated_datetime": "2025-11-02T21:29:08.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1107 LEAVENWORTH ST, SAN FRANCISCO, CA 94109",
+    "street": "LEAVENWORTH ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "NOB HILL",
+    "analysis_neighborhood": "Nob Hill",
+    "police_district": "CENTRAL",
+    "lat": "37.7914003539665",
+    "long": "-122.41593835024628",
+    "point": {
+      "latitude": "37.7914003539665",
+      "longitude": "-122.41593835024628",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41593835,
+        37.791400354
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762147735/san-francisco/production/gofuynmqzwskgiooy0rh.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907975",
+    "requested_datetime": "2025-11-02T20:27:00.000",
+    "updated_datetime": "2025-11-02T20:27:07.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1650 SAN JOSE AVE, SAN FRANCISCO, CA 94112",
+    "street": "SAN JOSE AVE",
+    "supervisor_district": "11.0",
+    "neighborhoods_sffind_boundaries": "MISSION TERRACE",
+    "analysis_neighborhood": "Outer Mission",
+    "police_district": "INGLESIDE",
+    "lat": "37.73053221766394",
+    "long": "-122.43663230513206",
+    "point": {
+      "latitude": "37.73053221766394",
+      "longitude": "-122.43663230513206",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.436632305,
+        37.730532218
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762144019/san-francisco/production/ofxjenmvkdxsydcshggw.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907935",
+    "requested_datetime": "2025-11-02T20:11:38.000",
+    "updated_datetime": "2025-11-02T20:11:45.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "225 TAYLOR ST, SAN FRANCISCO, CA 94102",
+    "street": "TAYLOR ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78457543235841",
+    "long": "-122.41117600438747",
+    "point": {
+      "latitude": "37.78457543235841",
+      "longitude": "-122.41117600438747",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.411176004,
+        37.784575432
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762143094/san-francisco/production/lin6cclt3bksambj2g1c.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907876",
+    "requested_datetime": "2025-11-02T19:52:48.000",
+    "updated_datetime": "2025-11-02T19:53:30.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "729 WASHINGTON ST, SAN FRANCISCO, CA 94108",
+    "street": "WASHINGTON ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "Chinatown",
+    "analysis_neighborhood": "Chinatown",
+    "police_district": "CENTRAL",
+    "lat": "37.79511069",
+    "long": "-122.4059557",
+    "point": {
+      "latitude": "37.79511069",
+      "longitude": "-122.4059557",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.4059557,
+        37.79511069
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002907876&formref=PLE8TYR4"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907557",
+    "requested_datetime": "2025-11-02T18:01:03.000",
+    "updated_datetime": "2025-11-02T18:01:09.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "474 LEAVENWORTH ST, SAN FRANCISCO, CA 94102",
+    "street": "LEAVENWORTH ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78525758871326",
+    "long": "-122.41463247583792",
+    "point": {
+      "latitude": "37.78525758871326",
+      "longitude": "-122.41463247583792",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.414632476,
+        37.785257589
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907554",
+    "requested_datetime": "2025-11-02T17:59:14.000",
+    "updated_datetime": "2025-11-02T17:59:29.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1040 EDDY ST, SAN FRANCISCO, CA 94109",
+    "street": "EDDY ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "CATHEDRAL HILL",
+    "analysis_neighborhood": "Western Addition",
+    "police_district": "NORTHERN",
+    "lat": "37.782422174557034",
+    "long": "-122.4248502511133",
+    "point": {
+      "latitude": "37.782422174557034",
+      "longitude": "-122.4248502511133",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.424850251,
+        37.782422175
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762135151/san-francisco/production/gxk5kjg1spcpybw1y28y.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907346",
+    "requested_datetime": "2025-11-02T16:56:53.000",
+    "updated_datetime": "2025-11-02T16:57:11.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "8 OCTAVIA ST, SAN FRANCISCO, CA 94102",
+    "street": "OCTAVIA ST",
+    "supervisor_district": "8.0",
+    "neighborhoods_sffind_boundaries": "LOWER HAIGHT",
+    "analysis_neighborhood": "Hayes Valley",
+    "police_district": "SOUTHERN",
+    "lat": "37.77255373608489",
+    "long": "-122.42350201340706",
+    "point": {
+      "latitude": "37.77255373608489",
+      "longitude": "-122.42350201340706",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.423502013,
+        37.772553736
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762131411/san-francisco/production/ikb0jxtozmzmn7hzi0gn.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907340",
+    "requested_datetime": "2025-11-02T16:55:47.000",
+    "updated_datetime": "2025-11-02T16:56:02.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "8 OCTAVIA ST, SAN FRANCISCO, CA 94102",
+    "street": "OCTAVIA ST",
+    "supervisor_district": "8.0",
+    "neighborhoods_sffind_boundaries": "LOWER HAIGHT",
+    "analysis_neighborhood": "Hayes Valley",
+    "police_district": "SOUTHERN",
+    "lat": "37.77244464852282",
+    "long": "-122.42342440001222",
+    "point": {
+      "latitude": "37.77244464852282",
+      "longitude": "-122.42342440001222",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.4234244,
+        37.772444649
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762131345/san-francisco/production/wlx9bfz72qqsfk8yibhr.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907289",
+    "requested_datetime": "2025-11-02T16:45:41.000",
+    "updated_datetime": "2025-11-02T23:20:44.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "81 CEDAR ST, SAN FRANCISCO, CA 94109",
+    "street": "CEDAR ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "LOWER NOB HILL",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "NORTHERN",
+    "lat": "37.786399664159816",
+    "long": "-122.41955922940708",
+    "point": {
+      "latitude": "37.786399664159816",
+      "longitude": "-122.41955922940708",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.419559229,
+        37.786399664
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762130740/san-francisco/production/xdwwj21pfusjuydaxvmo.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907216",
+    "requested_datetime": "2025-11-02T16:29:44.000",
+    "updated_datetime": "2025-11-02T16:29:53.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1007 CAPP ST, SAN FRANCISCO, CA 94110",
+    "street": "CAPP ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.750523985663335",
+    "long": "-122.4171098830856",
+    "point": {
+      "latitude": "37.750523985663335",
+      "longitude": "-122.4171098830856",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.417109883,
+        37.750523986
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907168",
+    "requested_datetime": "2025-11-02T16:19:15.000",
+    "updated_datetime": "2025-11-02T16:19:15.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "GGP Panhandle I POI, SAN FRANCISCO, CA 94117",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "Panhandle",
+    "analysis_neighborhood": "Golden Gate Park",
+    "police_district": "PARK",
+    "lat": "37.772204762",
+    "long": "-122.4487004",
+    "point": {
+      "latitude": "37.772204762",
+      "longitude": "-122.4487004",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.4487004,
+        37.772204762
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907152",
+    "requested_datetime": "2025-11-02T16:14:30.000",
+    "updated_datetime": "2025-11-02T16:14:42.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "505 VAN NESS AVE, SAN FRANCISCO, CA 94102",
+    "street": "VAN NESS AVE",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "CIVIC CENTER",
+    "analysis_neighborhood": "Western Addition",
+    "police_district": "NORTHERN",
+    "lat": "37.78011919131609",
+    "long": "-122.42036855058195",
+    "point": {
+      "latitude": "37.78011919131609",
+      "longitude": "-122.42036855058195",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.420368551,
+        37.780119191
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907124",
+    "requested_datetime": "2025-11-02T16:08:48.000",
+    "updated_datetime": "2025-11-02T16:09:34.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "90 MARENGO ST, SAN FRANCISCO, CA 94124",
+    "street": "MARENGO ST",
+    "supervisor_district": "10.0",
+    "neighborhoods_sffind_boundaries": "Apparel City",
+    "analysis_neighborhood": "Bayview Hunters Point",
+    "police_district": "BAYVIEW",
+    "lat": "37.7385628",
+    "long": "-122.40680154",
+    "point": {
+      "latitude": "37.7385628",
+      "longitude": "-122.40680154",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.40680154,
+        37.7385628
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002907124&formref=OY18CXB9"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907110",
+    "requested_datetime": "2025-11-02T16:06:05.000",
+    "updated_datetime": "2025-11-02T16:06:06.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "915 MINNA ST, SAN FRANCISCO, CA 94103",
+    "street": "MINNA ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South of Market",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.774323",
+    "long": "-122.41589654",
+    "point": {
+      "latitude": "37.774323",
+      "longitude": "-122.41589654",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41589654,
+        37.774323
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907063",
+    "requested_datetime": "2025-11-02T15:56:36.000",
+    "updated_datetime": "2025-11-02T15:57:04.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "2749 17TH ST, SAN FRANCISCO, CA 94110",
+    "street": "17TH ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.763930877895596",
+    "long": "-122.41078090452166",
+    "point": {
+      "latitude": "37.763930877895596",
+      "longitude": "-122.41078090452166",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.410780905,
+        37.763930878
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762127794/san-francisco/production/lv0eco2ecg2urkwvqog4.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002907009",
+    "requested_datetime": "2025-11-02T15:45:54.000",
+    "updated_datetime": "2025-11-02T15:45:55.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "INTERSECTION FULTON ST, 35TH AVE, SAN FRANCISCO, CA 94121",
+    "street": "FULTON ST",
+    "supervisor_district": "1.0",
+    "neighborhoods_sffind_boundaries": "Golden Gate Park",
+    "analysis_neighborhood": "Golden Gate Park",
+    "police_district": "RICHMOND",
+    "lat": "37.7720807374",
+    "long": "-122.4949032636",
+    "point": {
+      "latitude": "37.7720807374",
+      "longitude": "-122.4949032636",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.494903264,
+        37.772080737
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906992",
+    "requested_datetime": "2025-11-02T15:43:48.000",
+    "updated_datetime": "2025-11-02T15:44:50.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "175 BAY SHORE BLVD, SAN FRANCISCO, CA 94124",
+    "street": "BAY SHORE BLVD",
+    "supervisor_district": "10.0",
+    "neighborhoods_sffind_boundaries": "Peralta Heights",
+    "analysis_neighborhood": "Bernal Heights",
+    "police_district": "BAYVIEW",
+    "lat": "37.74877651",
+    "long": "-122.40451418",
+    "point": {
+      "latitude": "37.74877651",
+      "longitude": "-122.40451418",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.40451418,
+        37.74877651
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002906992&formref=3VP5ZRU7"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906960",
+    "requested_datetime": "2025-11-02T15:38:22.000",
+    "updated_datetime": "2025-11-02T15:38:39.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "317 BROADWAY, SAN FRANCISCO, CA 94133",
+    "street": "BROADWAY",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "NORTH BEACH",
+    "analysis_neighborhood": "North Beach",
+    "police_district": "CENTRAL",
+    "lat": "37.79832119203361",
+    "long": "-122.4025346884977",
+    "point": {
+      "latitude": "37.79832119203361",
+      "longitude": "-122.4025346884977",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.402534688,
+        37.798321192
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906940",
+    "requested_datetime": "2025-11-02T15:35:28.000",
+    "updated_datetime": "2025-11-02T16:58:49.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "295 SAN CARLOS ST, SAN FRANCISCO, CA 94110",
+    "street": "SAN CARLOS ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.75883491830075",
+    "long": "-122.41980429784297",
+    "point": {
+      "latitude": "37.75883491830075",
+      "longitude": "-122.41980429784297",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.419804298,
+        37.758834918
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762126527/san-francisco/production/r90rm1zvzkrihrcuzzcr.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906910",
+    "requested_datetime": "2025-11-02T15:28:49.000",
+    "updated_datetime": "2025-11-02T15:29:04.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1850 BRYANT ST, SAN FRANCISCO, CA 94110",
+    "street": "BRYANT ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.76389691828718",
+    "long": "-122.4106278643012",
+    "point": {
+      "latitude": "37.76389691828718",
+      "longitude": "-122.4106278643012",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.410627864,
+        37.763896918
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762126128/san-francisco/production/d1bvhztymaei5xxj50gx.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906837",
+    "requested_datetime": "2025-11-02T15:13:48.000",
+    "updated_datetime": "2025-11-02T15:14:27.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "675 LEAVENWORTH ST, SAN FRANCISCO, CA 94109",
+    "street": "LEAVENWORTH ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "Lower Nob Hill",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "CENTRAL",
+    "lat": "37.78720209",
+    "long": "-122.41501464",
+    "point": {
+      "latitude": "37.78720209",
+      "longitude": "-122.41501464",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41501464,
+        37.78720209
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002906837&formref=8GZ3WPJ2"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906556",
+    "requested_datetime": "2025-11-02T14:15:12.000",
+    "closed_date": "2025-11-02T14:20:47.000",
+    "updated_datetime": "2025-11-02T14:20:47.000",
+    "status_description": "Closed",
+    "status_notes": "Case Cancelled - 311 tx to PD",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "2545 POLK ST, SAN FRANCISCO, CA 94109",
+    "street": "POLK ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "Russian Hill",
+    "analysis_neighborhood": "Russian Hill",
+    "police_district": "NORTHERN",
+    "lat": "37.80030268",
+    "long": "-122.42282523",
+    "point": {
+      "latitude": "37.80030268",
+      "longitude": "-122.42282523",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.42282523,
+        37.80030268
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906518",
+    "requested_datetime": "2025-11-02T14:09:56.000",
+    "updated_datetime": "2025-11-02T14:10:03.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1245 STEVENSON ST, SAN FRANCISCO, CA 94103",
+    "street": "STEVENSON ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "Mission",
+    "police_district": "SOUTHERN",
+    "lat": "37.77280829457972",
+    "long": "-122.4211801997656",
+    "point": {
+      "latitude": "37.77280829457972",
+      "longitude": "-122.4211801997656",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.4211802,
+        37.772808295
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762121395/san-francisco/production/sldl5oagq3faudoilpzm.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906513",
+    "requested_datetime": "2025-11-02T14:08:37.000",
+    "updated_datetime": "2025-11-02T14:08:37.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "INTERSECTION WALLER ST, PIERCE ST, SAN FRANCISCO, CA 94117",
+    "street": "WALLER ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "Duboce Triangle",
+    "analysis_neighborhood": "Haight Ashbury",
+    "police_district": "PARK",
+    "lat": "37.7707552988",
+    "long": "-122.4335473266",
+    "point": {
+      "latitude": "37.7707552988",
+      "longitude": "-122.4335473266",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.433547327,
+        37.770755299
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906511",
+    "requested_datetime": "2025-11-02T14:08:29.000",
+    "updated_datetime": "2025-11-02T14:08:30.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "275 10TH ST, SAN FRANCISCO, CA 94103",
+    "street": "10TH ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South of Market",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.77326453",
+    "long": "-122.41317137",
+    "point": {
+      "latitude": "37.77326453",
+      "longitude": "-122.41317137",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41317137,
+        37.77326453
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906324",
+    "requested_datetime": "2025-11-02T13:32:07.000",
+    "closed_date": "2025-11-02T13:38:35.000",
+    "updated_datetime": "2025-11-02T13:38:35.000",
+    "status_description": "Closed",
+    "status_notes": "Case Cancelled - called for medic",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "INTERSECTION ALBION ST, 17TH ST, SAN FRANCISCO, CA 94110",
+    "street": "ALBION ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "Mission Dolores",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.7632432895",
+    "long": "-122.4226987242",
+    "point": {
+      "latitude": "37.7632432895",
+      "longitude": "-122.4226987242",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.422698724,
+        37.763243289
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906316",
+    "requested_datetime": "2025-11-02T13:29:58.000",
+    "closed_date": "2025-11-02T13:39:04.000",
+    "updated_datetime": "2025-11-02T13:39:04.000",
+    "status_description": "Closed",
+    "status_notes": "Case Cancelled - known person working with street teams",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "INTERSECTION 3RD ST, STILLMAN ST, SAN FRANCISCO, CA 94107",
+    "street": "3RD ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South of Market",
+    "analysis_neighborhood": "Financial District/South Beach",
+    "police_district": "SOUTHERN",
+    "lat": "37.781750347",
+    "long": "-122.3963794433",
+    "point": {
+      "latitude": "37.781750347",
+      "longitude": "-122.3963794433",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.396379443,
+        37.781750347
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906211",
+    "requested_datetime": "2025-11-02T13:09:52.000",
+    "closed_date": "2025-11-02T13:14:24.000",
+    "updated_datetime": "2025-11-02T13:14:24.000",
+    "status_description": "Closed",
+    "status_notes": "Case is a Duplicate",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "45 HARRIET ST, SAN FRANCISCO, CA 94103",
+    "street": "HARRIET ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.778813820403656",
+    "long": "-122.40693604191581",
+    "point": {
+      "latitude": "37.778813820403656",
+      "longitude": "-122.40693604191581",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.406936042,
+        37.77881382
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762117789/san-francisco/production/mhvtov5ikf34qeorzibr.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002906180",
+    "requested_datetime": "2025-11-02T13:02:45.000",
+    "updated_datetime": "2025-11-02T13:04:34.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1886 MARKET ST, SAN FRANCISCO, CA 94102",
+    "street": "MARKET ST",
+    "supervisor_district": "8.0",
+    "neighborhoods_sffind_boundaries": "MINT HILL",
+    "analysis_neighborhood": "Hayes Valley",
+    "police_district": "SOUTHERN",
+    "lat": "37.77095782574536",
+    "long": "-122.42485939260861",
+    "point": {
+      "latitude": "37.77095782574536",
+      "longitude": "-122.42485939260861",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.424859393,
+        37.770957826
+      ]
+    },
+    "source": "Mobile",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905943",
+    "requested_datetime": "2025-11-02T12:28:16.000",
+    "updated_datetime": "2025-11-02T12:28:26.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "333 IVY ST, SAN FRANCISCO, CA 94102",
+    "street": "IVY ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "HAYES VALLEY",
+    "analysis_neighborhood": "Hayes Valley",
+    "police_district": "NORTHERN",
+    "lat": "37.7772106299339",
+    "long": "-122.42365395554039",
+    "point": {
+      "latitude": "37.7772106299339",
+      "longitude": "-122.42365395554039",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.423653956,
+        37.77721063
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762115292/san-francisco/production/digg64kadqvprkpnu4cp.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905901",
+    "requested_datetime": "2025-11-02T12:18:29.000",
+    "updated_datetime": "2025-11-02T12:19:34.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "229 SHOTWELL ST, SAN FRANCISCO, CA 94110",
+    "street": "SHOTWELL ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "Mission",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.76474759",
+    "long": "-122.41623317",
+    "point": {
+      "latitude": "37.76474759",
+      "longitude": "-122.41623317",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41623317,
+        37.76474759
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905901&formref=PA06W8R7"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905811",
+    "requested_datetime": "2025-11-02T12:02:09.000",
+    "closed_date": "2025-11-02T12:28:44.000",
+    "updated_datetime": "2025-11-02T12:28:44.000",
+    "status_description": "Closed",
+    "status_notes": "Case is a Duplicate",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "215 TAYLOR ST, SAN FRANCISCO, CA 94102",
+    "street": "TAYLOR ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "Tenderloin",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78432661",
+    "long": "-122.41124954",
+    "point": {
+      "latitude": "37.78432661",
+      "longitude": "-122.41124954",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41124954,
+        37.78432661
+      ]
+    },
+    "source": "Phone",
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905796",
+    "requested_datetime": "2025-11-02T11:58:49.000",
+    "updated_datetime": "2025-11-02T12:00:00.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1073 MARKET ST, SAN FRANCISCO, CA 94103",
+    "street": "MARKET ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "Tenderloin",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78089797",
+    "long": "-122.41181269",
+    "point": {
+      "latitude": "37.78089797",
+      "longitude": "-122.41181269",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41181269,
+        37.78089797
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905796&formref=VQG5YMU8"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905765",
+    "requested_datetime": "2025-11-02T11:54:48.000",
+    "updated_datetime": "2025-11-02T11:55:34.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "105 7TH ST, SAN FRANCISCO, CA 94103",
+    "street": "7TH ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South of Market",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.77913168",
+    "long": "-122.41068968",
+    "point": {
+      "latitude": "37.77913168",
+      "longitude": "-122.41068968",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41068968,
+        37.77913168
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905765&formref=PNJ79375"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905740",
+    "requested_datetime": "2025-11-02T11:50:48.000",
+    "updated_datetime": "2025-11-02T13:42:52.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1065 EDDY ST, SAN FRANCISCO, CA 94109",
+    "street": "EDDY ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "Cathedral Hill",
+    "analysis_neighborhood": "Western Addition",
+    "police_district": "NORTHERN",
+    "lat": "37.78225396",
+    "long": "-122.42520245",
+    "point": {
+      "latitude": "37.78225396",
+      "longitude": "-122.42520245",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.42520245,
+        37.78225396
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905740&formref=MPT2I2N9"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905739",
+    "requested_datetime": "2025-11-02T11:50:02.000",
+    "closed_date": "2025-11-02T12:29:43.000",
+    "updated_datetime": "2025-11-02T12:29:43.000",
+    "status_description": "Closed",
+    "status_notes": "Case Cancelled",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "245 TAYLOR ST, SAN FRANCISCO, CA 94102",
+    "street": "TAYLOR ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.7845986131307",
+    "long": "-122.4111012745799",
+    "point": {
+      "latitude": "37.7845986131307",
+      "longitude": "-122.4111012745799",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.411101275,
+        37.784598613
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762112997/san-francisco/production/zifgrfz60aveazuezaux.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905734",
+    "requested_datetime": "2025-11-02T11:47:37.000",
+    "closed_date": "2025-11-02T11:50:18.000",
+    "updated_datetime": "2025-11-02T11:50:18.000",
+    "status_description": "Closed",
+    "status_notes": "Case is a Duplicate",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "225 TAYLOR ST, SAN FRANCISCO, CA 94102",
+    "street": "TAYLOR ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78459258015534",
+    "long": "-122.41116997687",
+    "point": {
+      "latitude": "37.78459258015534",
+      "longitude": "-122.41116997687",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.411169977,
+        37.78459258
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762112852/san-francisco/production/b5lvc8rs4vr7ftoxnej0.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905715",
+    "requested_datetime": "2025-11-02T11:46:18.000",
+    "closed_date": "2025-11-02T11:47:54.000",
+    "updated_datetime": "2025-11-02T11:47:54.000",
+    "status_description": "Closed",
+    "status_notes": "Case Cancelled - call PD",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "225 TAYLOR ST, SAN FRANCISCO, CA 94102",
+    "street": "TAYLOR ST",
+    "supervisor_district": "5.0",
+    "neighborhoods_sffind_boundaries": "TENDERLOIN",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.784479000905684",
+    "long": "-122.41116565501032",
+    "point": {
+      "latitude": "37.784479000905684",
+      "longitude": "-122.41116565501032",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.411165655,
+        37.784479001
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762112774/san-francisco/production/qqcwbojwfbsik9he1elw.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905637",
+    "requested_datetime": "2025-11-02T11:31:48.000",
+    "updated_datetime": "2025-11-02T11:32:14.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "3381 26TH ST, SAN FRANCISCO, CA 94110",
+    "street": "26TH ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "MISSION",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.74902607720322",
+    "long": "-122.41783868219058",
+    "point": {
+      "latitude": "37.74902607720322",
+      "longitude": "-122.41783868219058",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.417838682,
+        37.749026077
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762111907/san-francisco/production/prymb2zm9yssmcqgjcdb.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905552",
+    "requested_datetime": "2025-11-02T11:18:47.000",
+    "updated_datetime": "2025-11-02T11:49:15.000",
+    "status_description": "Open",
+    "status_notes": "new",
+    "agency_responsible": "Healthy Streets Operation Center - Individual",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "670 COMMERCIAL ST, SAN FRANCISCO, CA 94111",
+    "street": "COMMERCIAL ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "Chinatown",
+    "analysis_neighborhood": "Chinatown",
+    "police_district": "CENTRAL",
+    "lat": "37.79414217",
+    "long": "-122.40420979",
+    "point": {
+      "latitude": "37.79414217",
+      "longitude": "-122.40420979",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.40420979,
+        37.79414217
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905552&formref=P876F1H7"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905475",
+    "requested_datetime": "2025-11-02T11:05:47.000",
+    "updated_datetime": "2025-11-02T11:06:25.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "20 8TH ST, SAN FRANCISCO, CA 94103",
+    "street": "8TH ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "TENDERLOIN",
+    "lat": "37.77840072046991",
+    "long": "-122.41449605790119",
+    "point": {
+      "latitude": "37.77840072046991",
+      "longitude": "-122.41449605790119",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.414496058,
+        37.77840072
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762110346/san-francisco/production/fftx3qdgnnjv4hcinfeh.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905469",
+    "requested_datetime": "2025-11-02T11:00:44.000",
+    "updated_datetime": "2025-11-02T11:05:00.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1164 MISSION ST, SAN FRANCISCO, CA 94103",
+    "street": "MISSION ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.77814166666667",
+    "long": "-122.41252833333331",
+    "point": {
+      "latitude": "37.77814166666667",
+      "longitude": "-122.41252833333331",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.412528333,
+        37.778141667
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762110043/san-francisco/production/c5suad1gsb0ymyag0iyw.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905553",
+    "requested_datetime": "2025-11-02T10:57:54.000",
+    "updated_datetime": "2025-11-02T11:49:42.000",
+    "status_description": "Open",
+    "status_notes": "new",
+    "agency_responsible": "Healthy Streets Operation Center - Individual",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "43 HARRIET ST, SAN FRANCISCO, CA 94103",
+    "street": "HARRIET ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.77883632891232",
+    "long": "-122.40701052827252",
+    "point": {
+      "latitude": "37.77883632891232",
+      "longitude": "-122.40701052827252",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.407010528,
+        37.778836329
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762109871/san-francisco/production/jx7a1cy2ljormremzg7f.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905383",
+    "requested_datetime": "2025-11-02T10:50:47.000",
+    "closed_date": "2025-11-02T11:10:52.000",
+    "updated_datetime": "2025-11-02T11:10:52.000",
+    "status_description": "Closed",
+    "status_notes": "Case is Invalid - submit as cleaning",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1105 FOLSOM ST, SAN FRANCISCO, CA 94103",
+    "street": "FOLSOM ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South of Market",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "SOUTHERN",
+    "lat": "37.77661481",
+    "long": "-122.40793387",
+    "point": {
+      "latitude": "37.77661481",
+      "longitude": "-122.40793387",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.40793387,
+        37.77661481
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905383&formref=76V8CR41"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905377",
+    "requested_datetime": "2025-11-02T10:49:47.000",
+    "updated_datetime": "2025-11-02T10:51:09.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "29 CLARENCE PL, SAN FRANCISCO, CA 94107",
+    "street": "CLARENCE PL",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "South Beach",
+    "analysis_neighborhood": "Financial District/South Beach",
+    "police_district": "SOUTHERN",
+    "lat": "37.77973599",
+    "long": "-122.3926394",
+    "point": {
+      "latitude": "37.77973599",
+      "longitude": "-122.3926394",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.3926394,
+        37.77973599
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905377&formref=JTR34Q79"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905348",
+    "requested_datetime": "2025-11-02T10:45:38.000",
+    "updated_datetime": "2025-11-02T10:47:26.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "1402 15TH ST, SAN FRANCISCO, CA 94103",
+    "street": "15TH ST",
+    "supervisor_district": "9.0",
+    "neighborhoods_sffind_boundaries": "Mission",
+    "analysis_neighborhood": "Mission",
+    "police_district": "MISSION",
+    "lat": "37.76703971",
+    "long": "-122.41595149",
+    "point": {
+      "latitude": "37.76703971",
+      "longitude": "-122.41595149",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.41595149,
+        37.76703971
+      ]
+    },
+    "source": "Web",
+    "media_url": {
+      "url": "https://sanfrancisco.form.us.empro.verintcloudservices.com/form/auto/download_attachments?caseid=101002905348&formref=ZST0QQ05"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905299",
+    "requested_datetime": "2025-11-02T10:33:34.000",
+    "updated_datetime": "2025-11-02T10:35:10.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "943 MARKET ST, SAN FRANCISCO, CA 94103",
+    "street": "MARKET ST",
+    "supervisor_district": "6.0",
+    "neighborhoods_sffind_boundaries": "SOUTH OF MARKET",
+    "analysis_neighborhood": "South of Market",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78304727800349",
+    "long": "-122.40901813497649",
+    "point": {
+      "latitude": "37.78304727800349",
+      "longitude": "-122.40901813497649",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.409018135,
+        37.783047278
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762108412/san-francisco/production/oubzny4egh8fokflclli.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  },
+  {
+    "service_request_id": "101002905273",
+    "requested_datetime": "2025-11-02T10:30:59.000",
+    "updated_datetime": "2025-11-02T10:31:15.000",
+    "status_description": "Open",
+    "status_notes": "open",
+    "agency_responsible": "Healthy Streets Operation Center",
+    "service_name": "Encampment",
+    "service_subtype": "encampment",
+    "address": "894 MARKET ST, SAN FRANCISCO, CA 94102",
+    "street": "MARKET ST",
+    "supervisor_district": "3.0",
+    "neighborhoods_sffind_boundaries": "DOWNTOWN / UNION SQUARE",
+    "analysis_neighborhood": "Tenderloin",
+    "police_district": "TENDERLOIN",
+    "lat": "37.78446864532961",
+    "long": "-122.40764568878707",
+    "point": {
+      "latitude": "37.78446864532961",
+      "longitude": "-122.40764568878707",
+      "human_address": "{\"address\": \"\", \"city\": \"\", \"state\": \"\", \"zip\": \"\"}"
+    },
+    "point_geom": {
+      "type": "Point",
+      "coordinates": [
+        -122.407645689,
+        37.784468645
+      ]
+    },
+    "source": "Mobile",
+    "media_url": {
+      "url": "https://spot-sf-res.cloudinary.com/image/upload/v1762108258/san-francisco/production/goy2sala6lctbwvsx2up.jpg"
+    },
+    "data_as_of": "2025-11-03T01:00:00.000",
+    "data_loaded_at": "2025-11-03T03:09:57.000"
+  }
+]

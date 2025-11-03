@@ -196,9 +196,6 @@ export default function LocationInput({ value, onChange, placeholder, icon, clas
                       <div className="font-medium text-sm text-foreground truncate">
                         {formatAddress(suggestion.display_name)}
                       </div>
-                      <div className="text-xs text-muted-foreground truncate">
-                        {suggestion.type}
-                      </div>
                     </div>
                   </button>
                 ))}

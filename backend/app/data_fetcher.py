@@ -82,37 +82,33 @@ class DataSFetcher:
         """
         print("[API] Fetching 311 data from DataSF...")
 
-        # Simplified query - fetch recent data and filter in Python
+        # Query parameters - fetch only Aggressive/Threatening and Encampment-related services
+        # Use $where clause to filter by service_name directly in API query
         query = {
             "$limit": 50,
             "$order": "requested_datetime DESC",
-            "$where": "requested_datetime > '2025-10-01T00:00:00.000'"
+            "$where": "service_name = 'Aggressive/Threatening' OR service_subtype = 'encampment'"
         }
 
         headers = {
             "X-App-Token": DATASF_API_TOKEN
         }
 
-        # 311 service types we're interested in
-        target_services = {"AGGRESSIVE/THREATENING", "ENCAMPMENT", "ENCAMPMENTS"}
-
         try:
             response = requests.get(API_311_URL, params=query, headers=headers, timeout=30)
             response.raise_for_status()
 
             all_incidents = response.json()
-            # Filter for our target service types
-            incidents = [i for i in all_incidents
-                        if i.get("service_name", "").upper() in target_services
-                        and i.get("point_geom")]
+            # Additional filter to ensure we have location data
+            incidents = [i for i in all_incidents if i.get("point_geom")]
 
-            print(f"[OK] Fetched {len(incidents)} 311 incidents (filtered from {len(all_incidents)} total)")
-            
+            print(f"[OK] Fetched {len(incidents)} 311 incidents (from query of {len(all_incidents)} total)")
+
             # Save to cache
             self._save_to_cache(incidents, "311_data.json")
-            
+
             return incidents
-            
+
         except Exception as e:
             print(f"[ERROR] Error fetching 311 data: {e}")
             # Try to load from cache

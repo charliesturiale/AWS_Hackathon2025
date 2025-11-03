@@ -42,31 +42,20 @@ export async function calculateRoutes(
     console.log("✅ Received routes from backend:", data)
 
     // Backend returns routes with risk scores and safety scores already calculated
-    // Generate waypoints for visualization (client-side only)
-    const routesWithWaypoints: Route[] = data.routes.map((route: any) => {
-      // Generate mock waypoints based on route length
-      const numWaypoints = 3
-      const waypoints = Array.from({ length: numWaypoints }, (_, i) => {
-        return {
-          name: `Waypoint ${i + 1}`,
-          type: route.safetyScore >= 90 ? "Safe area" : route.safetyScore >= 80 ? "Moderate area" : "Caution area",
-          safe: route.safetyScore >= 85,
-        }
-      })
-
+    const routesWithData: Route[] = data.routes.map((route: any) => {
       return {
         ...route,
-        // Add computed scores for backward compatibility with existing UI
+        // These fields are only for backward compatibility with UI components
         crimeScore: route.safetyScore,
         timeScore: route.safetyScore,
         socialScore: route.safetyScore,
         pedestrianScore: route.safetyScore,
-        waypoints,
+        waypoints: [], // No fake waypoints
       }
     })
 
     return {
-      routes: routesWithWaypoints,
+      routes: routesWithData,
       originCoords: data.originCoords,
       destCoords: data.destCoords,
     }

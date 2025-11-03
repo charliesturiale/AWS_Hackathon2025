@@ -3,19 +3,23 @@
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MapPin, Navigation, Shield, ChevronRight, Settings, Loader2, AlertCircle } from "lucide-react"
+import { MapPin, Navigation, Shield, ChevronRight, Loader2, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import RouteMap from "@/components/route-map"
 import LocationInput from "@/components/location-input"
-import { calculateRoutes, isGraphHopperConfigured } from "@/services/graphhopper"
+import { calculateRoutes } from "@/services/graphhopper"
 import { saveLocation } from "@/services/savedLocations"
 
 export interface Route {
   id: number
   name: string
+  description: string
   distance: string
   time: string
   safetyScore: number
+  total_risk: number
+  crime_risk: number
+  incident_risk: number
   crimeScore: number
   timeScore: number
   socialScore: number
@@ -36,12 +40,6 @@ export default function SafePathApp() {
 
   const handleCalculateRoute = async () => {
     if (!origin || !destination) return
-
-    // Check if GraphHopper API is configured
-    if (!isGraphHopperConfigured()) {
-      setError("GraphHopper API key not configured. Please add REACT_APP_GRAPHHOPPER_API_KEY to your .env file.")
-      return
-    }
 
     setLoading(true)
     setError(null)
@@ -82,13 +80,10 @@ export default function SafePathApp() {
                 <Shield className="h-7 w-7 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-display font-bold text-gradient">SafePath</h1>
-                <p className="text-xs text-muted-foreground font-medium">San Francisco, CA</p>
+                <h1 className="text-4xl font-display font-bold text-gradient">SafePath</h1>
+                <p className="text-base text-muted-foreground font-semibold">San Francisco, CA</p>
               </div>
             </div>
-            <Button variant="ghost" size="icon" className="hover:bg-primary/10">
-              <Settings className="h-5 w-5 text-foreground/70" />
-            </Button>
           </div>
         </div>
       </header>
@@ -167,28 +162,18 @@ export default function SafePathApp() {
                           : "border-border/50 bg-white hover:border-primary/50 hover:shadow-md"
                       }`}
                     >
-                      <div className="mb-2 flex items-center justify-between">
-                        <div className="flex items-center gap-2.5">
-                          <div className="h-4 w-4 rounded-full shadow-sm" style={{ backgroundColor: route.color }} />
-                          <h3 className="font-display font-bold text-foreground">{route.name}</h3>
-                        </div>
-                        <span
-                          className={`text-sm font-bold px-2.5 py-1 rounded-lg ${
-                            route.safetyScore >= 90
-                              ? "bg-accent/15 text-accent"
-                              : route.safetyScore >= 80
-                                ? "bg-primary/15 text-primary"
-                                : "bg-yellow-500/15 text-yellow-600"
-                          }`}
-                        >
-                          {route.safetyScore}/100
-                        </span>
+                      <div className="mb-2 flex items-center gap-2.5">
+                        <div className="h-4 w-4 rounded-full shadow-sm" style={{ backgroundColor: route.color }} />
+                        <h3 className="font-display font-bold text-foreground">{route.name}</h3>
                       </div>
-                      <div className="flex gap-4 text-sm text-muted-foreground font-medium">
+                      <div className="flex gap-4 text-sm text-muted-foreground font-medium mb-2">
                         <span>{route.distance}</span>
                         <span>•</span>
                         <span>{route.time}</span>
                       </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed">
+                        {route.description}
+                      </p>
                     </button>
                   ))}
                 </div>

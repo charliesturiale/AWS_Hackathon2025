@@ -30,7 +30,12 @@ echo   Press Ctrl+C to stop
 echo ========================================
 echo.
 
+REM Set Python to UTF-8 mode to avoid Windows console encoding issues
+set PYTHONIOENCODING=utf-8
+set PYTHONUTF8=1
+
 cd app
-uvicorn main:app --reload --port 8000
+REM Note: --reload disabled on Windows due to file watcher compatibility issues
+python -X utf8 -m uvicorn main:app --port 8000
 
 pause

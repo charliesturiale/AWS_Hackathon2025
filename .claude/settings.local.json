@@ -8,7 +8,14 @@
       "Bash(powershell -Command \"Get-Process python | Where-Object {$_MainWindowTitle -eq ''''} | Stop-Process -Force\")",
       "Bash(powershell -Command \"Get-Process uvicorn | Stop-Process -Force\")",
       "Bash(timeout 20 bash:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(powershell:*)",
+      "Bash(timeout 5 bash:*)",
+      "Bash(timeout 30 bash -c 'echo \"\"Waiting for backend to start...\"\"; for i in {1..15}; do sleep 2; if curl -s http://localhost:8000/api/health > /dev/null 2>&1; then echo \"\"Backend is ready!\"\"; curl -s http://localhost:8000/api/health; exit 0; fi; echo \"\"Attempt $i/15\"\"; done; echo \"\"Timeout waiting for backend\"\"')",
+      "Bash(timeout 30 bash:*)",
+      "Bash(systeminfo:*)",
+      "Bash(findstr:*)",
+      "Bash(del /Q C:UsersnathaAWS_HACKATHON2025*.md)"
     ],
     "deny": [],
     "ask": []

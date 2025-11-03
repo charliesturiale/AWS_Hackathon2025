@@ -66,39 +66,47 @@ const createCustomIcon = (color: string, text: string) => {
   })
 }
 
-const createWaypointIcon = (safe: boolean) => {
-  const color = safe ? "#10b981" : "#f59e0b"
-  const symbol = safe ? "✓" : "!"
 
-  return L.divIcon({
-    className: "waypoint-marker",
-    html: `
-      <div style="
-        background: ${color};
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        border: 2px solid white;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-      ">${symbol}</div>
-    `,
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
-    popupAnchor: [0, -14],
-  })
+// Categorize incidents by type for specific icons
+const categorizeIncident = (incident: Incident): { category: string; color: string; icon: string } => {
+  const title = incident.title.toUpperCase()
+  const subtype = incident.subtype?.toUpperCase() || ""
+
+  // Crime categories (high severity)
+  if (title.includes("ROBBERY") || title.includes("ASSAULT") || title.includes("BATTERY") ||
+      title.includes("WEAPON") || title.includes("EXPLOSIVE")) {
+    return { category: "violent", color: "#dc2626", icon: "⚠" }
+  }
+  if (title.includes("BURGLARY") || title.includes("THEFT") || title.includes("PURSE SNATCH")) {
+    return { category: "theft", color: "#ea580c", icon: "🔓" }
+  }
+  if (title.includes("SUSPICIOUS") || title.includes("FIGHT")) {
+    return { category: "suspicious", color: "#f59e0b", icon: "👁" }
+  }
+  if (title.includes("THREAT") || title.includes("HARASSMENT") || title.includes("INDECENT")) {
+    return { category: "harassment", color: "#eab308", icon: "🗣" }
+  }
+
+  // 311 categories
+  if (title.includes("ENCAMPMENT") || subtype.includes("ENCAMPMENT")) {
+    return { category: "encampment", color: "#a855f7", icon: "⛺" }
+  }
+  if (title.includes("AGGRESSIVE") || title.includes("THREATENING")) {
+    return { category: "aggressive", color: "#f97316", icon: "❗" }
+  }
+
+  // Default categories
+  if (incident.type === "crime") {
+    return { category: "crime", color: "#ef4444", icon: "!" }
+  }
+  return { category: "311", color: "#6366f1", icon: "📋" }
 }
 
-// Incident marker icon - different styling for crime vs 311
-const createIncidentIcon = (type: "crime" | "311", count?: number) => {
-  const color = type === "crime" ? "#ef4444" : "#f59e0b"
-  const size = 26
-  const displayText = count && count > 1 ? count.toString() : "!"
+// Incident marker icon - different styling and icons by category
+const createIncidentIcon = (incident: Incident, count?: number) => {
+  const { category, color, icon } = categorizeIncident(incident)
+  const size = 30
+  const displayText = count && count > 1 ? count.toString() : icon
 
   return L.divIcon({
     className: "incident-marker",
@@ -109,14 +117,14 @@ const createIncidentIcon = (type: "crime" | "311", count?: number) => {
         height: ${size}px;
         border-radius: 50%;
         border: 3px solid white;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.5);
         display: flex;
         align-items: center;
         justify-content: center;
         color: white;
         font-weight: bold;
-        font-size: ${count && count > 9 ? '10px' : '13px'};
-        opacity: 0.9;
+        font-size: ${count && count > 1 ? '12px' : '15px'};
+        opacity: 0.95;
       ">${displayText}</div>
     `,
     iconSize: [size, size],
@@ -149,21 +157,25 @@ export default function RouteMap({ routeCalculated, origin, destination, routes,
   const defaultZoom = 13
 
   const [incidents, setIncidents] = useState<Incident[]>([])
-  const [incidentsLoading, setIncidentsLoading] = useState(false)
+  const [incidentsLoading, setIncidentsLoading] = useState(true)
+  const [incidentsLoaded, setIncidentsLoaded] = useState(false)
 
-  // Fetch incidents on component mount
+  // Fetch incidents IMMEDIATELY on component mount (before anything else)
   useEffect(() => {
     const fetchIncidents = async () => {
+      console.log('Starting incident fetch...')
       setIncidentsLoading(true)
       try {
         const response = await fetch('http://localhost:8000/api/incidents')
         const data = await response.json()
         if (data.incidents) {
           setIncidents(data.incidents)
-          console.log(`Loaded ${data.total_count} incidents: ${data.crime_count} crimes, ${data.incident_311_count} 311 incidents`)
+          setIncidentsLoaded(true)
+          console.log(`✓ Loaded ${data.total_count} incidents: ${data.crime_count} crimes, ${data.incident_311_count} 311 incidents`)
         }
       } catch (error) {
         console.error('Failed to fetch incidents:', error)
+        setIncidentsLoaded(true) // Continue even if fetch fails
       } finally {
         setIncidentsLoading(false)
       }
@@ -205,47 +217,54 @@ export default function RouteMap({ routeCalculated, origin, destination, routes,
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {/* Incident Markers - Always visible */}
-        {incidents.map((incident, index) => (
-          <Marker
-            key={`incident-${index}`}
-            position={[incident.coordinates.lat, incident.coordinates.lng]}
-            icon={createIncidentIcon(incident.type)}
-          >
-            <Popup>
-              <div className="min-w-[200px]">
-                <div className="font-semibold text-base mb-1">{incident.title}</div>
-                {incident.subtype && (
-                  <div className="text-sm text-muted-foreground mb-1">{incident.subtype}</div>
-                )}
-                {incident.location && (
-                  <div className="text-sm text-muted-foreground mb-1">{incident.location}</div>
-                )}
-                <div className="text-xs text-muted-foreground mt-2">
-                  {formatDate(incident.date)}
-                </div>
-                {incident.status && (
-                  <div className="text-xs mt-1">
-                    <span className={`px-2 py-0.5 rounded-full ${
-                      incident.status.toLowerCase() === 'open'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-gray-100 text-gray-800'
-                    }`}>
-                      {incident.status}
+        {/* Incident Markers - Always visible with category-specific icons */}
+        {incidents.map((incident, index) => {
+          const { category, color } = categorizeIncident(incident)
+          return (
+            <Marker
+              key={`incident-${index}`}
+              position={[incident.coordinates.lat, incident.coordinates.lng]}
+              icon={createIncidentIcon(incident)}
+            >
+              <Popup>
+                <div className="min-w-[200px]">
+                  <div className="font-semibold text-base mb-1">{incident.title}</div>
+                  {incident.subtype && (
+                    <div className="text-sm text-muted-foreground mb-1">{incident.subtype}</div>
+                  )}
+                  {incident.location && (
+                    <div className="text-sm text-muted-foreground mb-1">{incident.location}</div>
+                  )}
+                  <div className="text-xs text-muted-foreground mt-2">
+                    {formatDate(incident.date)}
+                  </div>
+                  {incident.status && (
+                    <div className="text-xs mt-1">
+                      <span className={`px-2 py-0.5 rounded-full ${
+                        incident.status.toLowerCase() === 'open'
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-gray-100 text-gray-800'
+                      }`}>
+                        {incident.status}
+                      </span>
+                    </div>
+                  )}
+                  <div className="mt-2 pt-2 border-t border-border">
+                    <span className={`text-xs font-semibold uppercase`} style={{ color }}>
+                      {category === 'violent' ? 'High Risk Crime' :
+                       category === 'theft' ? 'Property Crime' :
+                       category === 'suspicious' ? 'Suspicious Activity' :
+                       category === 'harassment' ? 'Harassment/Threats' :
+                       category === 'encampment' ? 'Encampment Report' :
+                       category === 'aggressive' ? 'Aggressive Behavior' :
+                       incident.type === 'crime' ? 'Crime Incident' : '311 Report'}
                     </span>
                   </div>
-                )}
-                <div className="mt-2 pt-2 border-t border-border">
-                  <span className={`text-xs font-semibold ${
-                    incident.type === 'crime' ? 'text-red-600' : 'text-orange-600'
-                  }`}>
-                    {incident.type === 'crime' ? 'Crime Incident' : '311 Report'}
-                  </span>
                 </div>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+              </Popup>
+            </Marker>
+          )
+        })}
 
         {/* Render routes if calculated */}
         {routeCalculated && routes && routes.length > 0 && (
@@ -298,35 +317,6 @@ export default function RouteMap({ routeCalculated, origin, destination, routes,
               )
             })()}
 
-            {/* Waypoint markers for selected route */}
-            {(() => {
-              const selectedRoute = routes.find((r) => r.id === selectedRouteId)
-              if (!selectedRoute) return null
-
-              return selectedRoute.waypoints.map((waypoint, index) => {
-                // Calculate waypoint position along the route
-                const waypointIndex = Math.floor(
-                  (index + 1) * (selectedRoute.coordinates.length / (selectedRoute.waypoints.length + 1))
-                )
-                const coord = selectedRoute.coordinates[waypointIndex]
-
-                return (
-                  <Marker
-                    key={index}
-                    position={[coord.lat, coord.lng]}
-                    icon={createWaypointIcon(waypoint.safe)}
-                  >
-                    <Popup>
-                      <div className="font-semibold">{waypoint.name}</div>
-                      <div className="text-sm text-muted-foreground">{waypoint.type}</div>
-                      <div className={`text-xs font-semibold mt-1 ${waypoint.safe ? "text-green-600" : "text-yellow-600"}`}>
-                        {waypoint.safe ? "Safe Area" : "Use Caution"}
-                      </div>
-                    </Popup>
-                  </Marker>
-                )
-              })
-            })()}
           </>
         )}
       </MapContainer>
